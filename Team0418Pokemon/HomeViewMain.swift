@@ -120,6 +120,7 @@ struct HomeViewMain: View {
                                     Circle()
                                         .stroke(Color.black.opacity(0.8), lineWidth: 3))
                         }
+                        .padding()
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Image(systemName: "circle.fill")
@@ -129,6 +130,7 @@ struct HomeViewMain: View {
                                 Circle()
                                     .stroke(Color.white.opacity(0.9), lineWidth: 6)
                             )
+                            .padding()
                         
                     }
                 }
