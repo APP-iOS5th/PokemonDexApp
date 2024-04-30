@@ -12,7 +12,8 @@ struct ButtonStyleModifier: ViewModifier {
         content
             .frame(height: 190)
             .frame(maxWidth: 360)
-            .background(.red.opacity(0.9))            .foregroundColor(.green)
+            .background(.red.opacity(0.9))
+            .foregroundColor(.green)
             .cornerRadius(30)
         
     }
@@ -33,6 +34,7 @@ struct CustomButtonStyle: ButtonStyle {
             .cornerRadius(25)
     }
 }
+
 
 struct HomeViewMain: View {
     var body: some View {
