@@ -15,7 +15,7 @@ struct TapBarView: View {
             HomeViewMain().tag(0)
             /*SearchView()*/ HomeViewP2().tag(1)
             /*EXTRAView()*/HomeViewP3().tag(2)
-        }
+        }.background(.black)
         
         ZStack{
             HStack {
@@ -46,12 +46,12 @@ func CustomTabItem(imageName: String, title: String, isActive: Bool) -> some Vie
         if isActive {
             Text(title)
                     .font(.system(size: 13)).bold()
-                .foregroundColor(isActive ? .black : .gray)
+                .foregroundColor(isActive ? .white : .gray)
         }
         Spacer()
     }
-    .frame(width: isActive ? 130 : 60, height: 60)
-    .background(isActive ? .white.opacity(0.4) : .clear)
+    .frame(width: isActive ? 130 : 60, height: 55)
+    .background(isActive ? .black.opacity(0.8) : .clear)
     .cornerRadius(30)
 }
 }
