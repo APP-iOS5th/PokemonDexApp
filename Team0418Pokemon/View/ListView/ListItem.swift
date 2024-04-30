@@ -21,9 +21,8 @@ struct ListItem: View {
           Text(name)
             .font(.title)
             .fontWeight(.bold)
-          Spacer()
         }
-        .frame(width: geometry.size.width/2, height: 100, alignment: .leading)
+        .frame(width: geometry.size.width/2, alignment: .leading)
 
         VStack(alignment: .trailing, spacing: 10) {
           Spacer()
@@ -31,10 +30,10 @@ struct ListItem: View {
             .aspectRatio(contentMode: .fit)
           Spacer()
         }
-        .frame(width: geometry.size.width/3, height: 100, alignment: .trailing)
+        .frame(width: geometry.size.width/3, alignment: .trailing)
 //          .background(.gray)
       }
-      .frame(width: geometry.size.width, height: 100)
+      .frame(width: geometry.size.width)
       .background(.blue)
     }
   }
