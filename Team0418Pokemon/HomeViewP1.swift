@@ -12,9 +12,9 @@ struct ButtonStyleModifier: ViewModifier {
         content
             .frame(height: 190)
             .frame(maxWidth: .infinity)
-            .background(Color.orange)
-            .foregroundColor(.green)
+            .background(.red.opacity(0.9))            .foregroundColor(.green)
             .cornerRadius(30)
+        
     }
 }
 extension View {
