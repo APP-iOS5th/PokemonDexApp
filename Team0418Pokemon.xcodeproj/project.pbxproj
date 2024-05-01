@@ -26,6 +26,7 @@
 		EB03F0852BE0E60E00A0B28B /* HomeViewP3.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F07C2BE0E2A400A0B28B /* HomeViewP3.swift */; };
 		EB03F08A2BE0FBA800A0B28B /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F0892BE0FBA800A0B28B /* TabBarViewModel.swift */; };
 		EB03F08C2BE0FBDE00A0B28B /* TapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F08B2BE0FBDE00A0B28B /* TapBarView.swift */; };
+		EBDC92302BE28636004D6891 /* HomeViewMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC922F2BE28636004D6891 /* HomeViewMainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		EB03F0802BE0E2E700A0B28B /* HomeViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMain.swift; sourceTree = "<group>"; };
 		EB03F0892BE0FBA800A0B28B /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		EB03F08B2BE0FBDE00A0B28B /* TapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarView.swift; sourceTree = "<group>"; };
+		EBDC922F2BE28636004D6891 /* HomeViewMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		83A972752BDF9D380027C4BC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		83A9727F2BDF9E540027C4BC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,17 +218,11 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		83A972752BDF9D380027C4BC /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		EBEEB5602BE1DDDC007856BE /* HomeViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				EB03F0892BE0FBA800A0B28B /* TabBarViewModel.swift */,
+				EBDC922F2BE28636004D6891 /* HomeViewMainModel.swift */,
 			);
 			path = HomeViewModel;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				83439DF12BE0DDF00073D526 /* HomeUseCase.swift in Sources */,
 				83439DF52BE0DF0F0073D526 /* DetailUseCase.swift in Sources */,
 				83439DF32BE0DE500073D526 /* PokemonDetail.swift in Sources */,
+				EBDC92302BE28636004D6891 /* HomeViewMainModel.swift in Sources */,
 				83439DEB2BE0D5E00073D526 /* ListUseCase.swift in Sources */,
 				83439DEF2BE0DDCA0073D526 /* PokemonType.swift in Sources */,
 				EB03F08C2BE0FBDE00A0B28B /* TapBarView.swift in Sources */,

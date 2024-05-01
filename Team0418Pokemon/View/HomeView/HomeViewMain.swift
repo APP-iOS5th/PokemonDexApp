@@ -7,141 +7,114 @@
 
 import SwiftUI
 
-struct ButtonStyleModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(height: 190)
-            .frame(maxWidth: 360)
-            .background(.white.opacity(0.4))
-            .foregroundColor(.green)
-            .cornerRadius(30)
+
+struct CustomButton: View {
+    let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
+    
+    var body: some View {
+        LazyVGrid(columns: columns, spacing: 25) {
+            ForEach(0..<9) { number in
+                ZStack {
+                    Button(action: {buttonTapped(number)}) {
+                        VStack(spacing: 3) { Image("Homeicon_\(number)")
+                                .resizable()
+                                .frame(height: 95)
+                                .frame(maxWidth: 95)
+                                .background(.white.opacity(0.8))
+                                .cornerRadius(30)
+                            Text(buttonTapped(number))
+                                .font(.system(size: 14))
+                                .bold()
+                                .foregroundColor(.white)
+                        }
+                    }
+                }.frame(maxWidth: 400)
+            }
+        }.frame(height: 515)
+            .frame(maxWidth: 330)
+            .background(Color.black.opacity(0.8))
+            .cornerRadius(20)
+
+    }
+    
+    
+    func buttonTapped(_ button: Int) -> String {
         
-    }
-}
-extension View {
-    func customButtonStyle() -> some View {
-        self.modifier(ButtonStyleModifier())
-    }
-}
-
-struct CustomButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(height: 175)
-            .frame(maxWidth: 345)
-            .background(Color.white)
-            .foregroundColor(.black)
-            .cornerRadius(25)
-    }
-}
-
-class HomeViewUse: HomeUseCase {
-    func request() -> [Pokemon] {
-        // 실제 데이터 요청 로직을 구현합니다.
-        // 예시: 서버에서 포켓몬 목록을 가져와 반환
-        return []
+        switch button {
+        case 0:
+            return "0001-0151"
+        case 1:
+            return "0152-0251"
+        case 2:
+            return "0252-0386"
+        case 3:
+            return "0387-0493"
+        case 4:
+            return "0494-0649"
+        case 5:
+            return "0650-0721"
+        case 6:
+            return "0722-0809"
+        case 7:
+            return "0810-0905"
+        case 8:
+            return "0906-1025"
+            
+        default:
+            return " "
+        }
     }
 }
 
 struct HomeViewMain: View {
+    
     var body: some View {
         NavigationView {
             ZStack {
                 Color.red.opacity(0.9).edgesIgnoringSafeArea(.all)
-                TabView {
-                    ScrollView {
-                        VStack(spacing: 12) {
-                            Button("Button 1") {
-                                //
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                            Button("Button 2") {
-                                //
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                            
-                            Button("Button 3") {
-                                //
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                        }
-                    }
-                    
-                    ScrollView {
-                        VStack(spacing: 12) {
-                            Button("Button 4") {
-                                
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                            Button("Button 5") {
-                                // 버튼 2가 눌렸을 때 수행할 동작
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                            Button("Button 6") {
-                                // 버튼 3이 눌렸을 때 수행할 동작
-                            }.customButtonStyle()
-                            .buttonStyle(CustomButtonStyle())                    }
-                    }
-                    
-                    ScrollView {
-                        VStack(spacing: 12) {
-                            Button("Button 7") {
-                                //
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                            
-                            Button("Button 8") {
-                                //
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                            Button("Button 9") {
-                                //
-                            }.customButtonStyle()
-                                .buttonStyle(CustomButtonStyle())
-                        }
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle())
-                .navigationBarTitle("POKEMON DOGAM", displayMode: .inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "circle.fill")
-                                .font(.system(size: 17))
-                            
-                            //                          .symbolEffect(.bounce, value: false)
-                                .foregroundColor(.red)
-                                .overlay(
-                                    Circle()
-                                        .stroke(Color.black.opacity(0.8), lineWidth: 3))
-                            Image(systemName: "circle.fill")
-                                .font(.system(size: 17))
-                                .foregroundColor(.yellow)
-                                .overlay(
-                                    Circle()
-                                        .stroke(Color.black.opacity(0.8), lineWidth: 3))
-                            Image(systemName: "circle.fill")
-                                .font(.system(size: 17))
-                                .foregroundColor(.green)
-                                .overlay(
-                                    Circle()
-                                        .stroke(Color.black.opacity(0.8), lineWidth: 3))
-                        }
-                        .padding()
-                    }
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image(systemName: "circle.fill")
-                            .font(.system(size: 40))
-                            .foregroundColor(.blue)
-                            .overlay(
-                                Circle()
-                                    .stroke(Color.white.opacity(0.9), lineWidth: 6)
-                            )
+                
+                VStack {
+                    CustomButton()
+                }.customButtonStyle()
+                    .navigationBarTitle("POKEMON DOGAM", displayMode: .inline)
+                
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "circle.fill")
+                                    .font(.system(size: 17))
+                                    .foregroundColor(.red)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(Color.black.opacity(0.8), lineWidth: 3))
+                                Image(systemName: "circle.fill")
+                                    .font(.system(size: 17))
+                                    .foregroundColor(.yellow)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(Color.black.opacity(0.8), lineWidth: 3))
+                                Image(systemName: "circle.fill")
+                                    .font(.system(size: 17))
+                                    .foregroundColor(.green)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(Color.black.opacity(0.8), lineWidth: 3))
+                            }
                             .padding()
+                        }
                         
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Image(systemName: "circle.fill")
+                                .font(.system(size: 40))
+                                .foregroundColor(.blue)
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color.white.opacity(0.9), lineWidth: 6)
+                                )
+                                .padding()
+                        }
                     }
-                }
-                .padding()
+                    .padding()
             }
         }
     }
@@ -150,6 +123,3 @@ struct HomeViewMain: View {
 #Preview {
     HomeViewMain()
 }
-
-//.replace.upUp.byLayer
-
