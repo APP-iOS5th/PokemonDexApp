@@ -14,6 +14,7 @@ struct PokemonDetail: Identifiable {
     let imageUrlString: String
     let stat: PokemonStat//상태
     let genus: String
+    
 }
 
 struct PokemonStat {
@@ -36,3 +37,4 @@ struct PokemonStats {
     let specialDefense: String
     let speed: String
 }
+

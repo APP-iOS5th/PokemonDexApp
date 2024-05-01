@@ -17,7 +17,6 @@ struct SecondView: View {
     ]
     var body: some View {
         LazyVGrid(columns: gridItem) {
-            ForEach(0..<pkmStats.count, id: \.self) { i in
                 HStack(alignment: .center){
                     VStack(alignment:.trailing) {
                         Text("HP: ")
@@ -44,14 +43,12 @@ struct SecondView: View {
                                 Text("상태")
                                     .font(.subheadline)
                                     .multilineTextAlignment(.center)
-                                
-                                    
                             }
                         }
                     }
                 }
             }
-        }
+        
         
     }
 }
