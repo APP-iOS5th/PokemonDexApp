@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DetailUseCase {
-    func request(with pokemonId: Int) -> PokemonDetail
+    func request(with pokemonId: Int) async -> PokemonDetail
 }
