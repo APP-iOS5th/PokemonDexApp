@@ -8,87 +8,80 @@
 import SwiftUI
 
 struct SearchView: View {
-
-    @State private var inputsearch = ""
-    @State private var selectTag: PokemonType = .all
+    
+    let pokemonList: [Pokemon] = [
+           Pokemon(id: 1, name: "Pikachu", imageUrlString: "bolt.fill"),
+           Pokemon(id: 2, name: "Bulbasaur", imageUrlString: "leaf.fill"),
+           Pokemon(id: 3, name: "Charmander", imageUrlString: "flame.fill"),
+           // 필요한 만큼 추가할 수 있습니다.
+       ]
+    
+    
+    @State private var inputSearch = ""
+    @State private var  isSelectedTag: PokemonType? = nil
     
     var body: some View {
-        VStack{
-            
-            //포켓몬 타입
-            NavigationStack{
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack(spacing: 10){
+        NavigationView {
+            VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
                         ForEach(PokemonType.allCases, id: \.self) { tag in
                             Button(action:{
-                                
                                 selectBtnClick(tag)
-                            }){
+                            }) {
                                 Text(tag.rawValue)
                                     .font(.caption)
                                     .foregroundStyle(Color.white)
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 5)
                                     .frame(width:60)
-                                    .background{
+                                    .background {
                                         Capsule()
                                             .fill(Color.black)
-                                            //.fill(Color(tag.DisplayColorName()))
                                     }
-                                //{
-                                        //if selectTag == tag{
-                                            //Capsule()
-                                                //.fill(Color(tag.DisplayColor()))
-                                        //}else{
-                                            //Capsule()
-                                               // .fill(Color(tag.DisplayColor()))
-                                            
-                                        //}
-                                        
-                                    //}
                             }
                         }
                     }
                 }
                 
-                
-                //포켓몬 검색목록
-                ScrollView(.vertical){
-                    List{
-                        Text("test")
-                        //ForEach (pokemons, id: \.id) { pokemon in
-                            //Text("\(pokemon.name)")
-                            //NavigationLink(destination:)){
-                                
-                            //}
+                ScrollView(.vertical) {
+                    VStack {
+                        ForEach(pokemonList){ pokemons in
+                            //PokemonSearchRow(pokemons: pokemons)
                         }
                     }
                 }
             }
+            .navigationBarTitle("Who's that pokemon?")
             .searchable(
-                text: $inputsearch,
-                placement: .navigationBarDrawer,
-                prompt: "Find a Pokemon")
-            
+                text: $inputSearch,placement: .navigationBarDrawer,prompt: "Find a Pokemon")
+            //.onChange(of: inputSearch){ newInputSearch in
+            //    searchvm.search(with: newInputSearch )
+            //}
+            .onAppear(){
+            //    searchvm.search()
+            }
         }
     }
+    
     
     //버튼 클릭 이벤트
     func selectBtnClick(_ selctag: PokemonType)
     {
         //inputsearch = selctag.rawValue
-//        switch selctag {
-//          case .all:
-//              inputsearch = selctag.rawValue
-//          case .normal:
-//              inputsearch = selctag.rawValue
-//          case .fire:
-//              inputsearch = selctag.rawValue
-//        default:
-//            break
-//        }
-//    }
+    }
 }
+    
+struct PokemonSearchRow: View{
+    
+    var body: some View{
+        HStack{
+            
+        }
+    }
+}
+
+
 
 #Preview {
     SearchView()

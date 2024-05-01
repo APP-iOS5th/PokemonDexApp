@@ -8,19 +8,11 @@
 import Foundation
 
 @Observable
-class SearchViewModel {
+final class SearchViewModel {
     
-//    private(set) var PokemonList: [Pokemon] = []
-//    
-//    init(){
-//    }
-//    
-//    func Search(pokemonName: String) async {
-//        do{
-//            
-//        } catch {
-//            print(error)
-//        }
-//        
-//    }
+    let pokemonData: [Pokemon] = [
+        Pokemon(id: 1, name: "Pikachu", imageUrlString: "bolt.fill"),
+        Pokemon(id: 2, name: "Bulbasaur", imageUrlString: "leaf.fill"),
+        Pokemon(id: 3, name: "Charmander", imageUrlString: "flame.fill"),
+    ]
 }
