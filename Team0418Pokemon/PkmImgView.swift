@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PkmImgView: View {
-    //    @State private var poketmonImg = UIImage? //이미지 불러올 변수
+    @State private var poketmonImg = ""//이미지 불러올 변수
     var body: some View {
         VStack {
             Image(systemName: "checkmark.square.fill") //포켓몬 이미지
