@@ -25,9 +25,6 @@ struct PokemonStat {
     let specialDefense: Int
     let speed: Int
     
-//    func getPokemonState ->  {
-//        
-//    }
 }
 struct PokemonStats {
     let hp: String

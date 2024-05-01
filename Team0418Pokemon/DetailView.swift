@@ -14,13 +14,13 @@ struct DetailView: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)//Safe Area를 무시하고 이미지 전체를 화면에 채움
             ScrollView {
-                PkmImgView()
+                PkmImgView().frame(width: 200,height: 200)
                 GeometryReader { geometry in
                     RoundedRectangle(cornerRadius:25)
                         .fill(Color.white)
                         .frame(height: 800)
                 }
-                FirstDetailView()
+                FirstDetailView(id: 1)
                     .padding(10)
                 Divider()
                 VStack(alignment: .leading) {

@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct FirstDetailView: View {
+    @State var id : Int
+    @State var type = ""
+    @State var genus = ""
+    @State var name = ""
     var body: some View {
         VStack{
             ZStack{
@@ -44,5 +48,5 @@ struct FirstDetailView: View {
 }
 
 #Preview {
-    FirstDetailView()
+    FirstDetailView(id: 1)
 }
