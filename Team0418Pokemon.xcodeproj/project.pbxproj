@@ -106,7 +106,6 @@
 			children = (
 				EB03F0882BE0E8F100A0B28B /* Network */,
 				EB03F0872BE0E8CC00A0B28B /* ViewModel */,
-				83A972742BDF9D340027C4BC /* Model */,
 				83A972722BDF9D240027C4BC /* View */,
 				83A972482BDF9D1A0027C4BC /* Team0418PokemonApp.swift */,
 				83A9724A2BDF9D1A0027C4BC /* ContentView.swift */,
@@ -147,13 +146,6 @@
 				EBEEB5612BE1DE65007856BE /* HomeView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		83A972742BDF9D340027C4BC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		EB03F0872BE0E8CC00A0B28B /* ViewModel */ = {
