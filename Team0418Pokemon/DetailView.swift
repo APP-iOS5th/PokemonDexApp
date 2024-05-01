@@ -23,8 +23,12 @@ struct DetailView: View {
                 FirstDetailView()
                     .padding(10)
                 Divider()
-                    .padding(20)
-                SecondView()
+                VStack(alignment: .leading) {
+                    Text("Basic Status")
+                        .font(.title)
+                    SecondView()
+                }
+                
             }
         }
     }

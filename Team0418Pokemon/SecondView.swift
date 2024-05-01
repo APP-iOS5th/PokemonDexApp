@@ -18,12 +18,12 @@ struct SecondView: View {
     var body: some View {
         LazyVGrid(columns: gridItem) {
             ForEach(0..<pkmStats.count, id: \.self) { i in
-                HStack{
+                HStack(alignment: .center){
                     VStack(alignment:.trailing) {
                         Text("HP: ")
                         Text("Attack: ")
                         Text("Defense: ")
-                        Text("Special-Attack: ").lineLimit(nil)
+                        Text("Special-Attack: ")
                         Text("Special-Defense:")
                         Text("Speed:")
                     }
@@ -32,15 +32,19 @@ struct SecondView: View {
                     Spacer()
                     VStack{
                         ForEach(0..<6) { _ in
-                            ZStack(alignment: .leading){
-                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .frame(width: 100)
-                                    .foregroundColor(Color.blue)
-                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .frame(width:30)
-                                    .foregroundColor(Color.red)
+                            ZStack(alignment: .center){
+                                ZStack(alignment: .leading){
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .frame(width: 100)
+                                        .foregroundColor(Color.blue)
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .frame(width:50)
+                                        .foregroundColor(Color.red)
+                                }
                                 Text("상태")
                                     .font(.subheadline)
+                                    .multilineTextAlignment(.center)
+                                
                                     
                             }
                         }
