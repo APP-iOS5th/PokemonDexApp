@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ListUseCase {
-    func request(with offset: Int, _ limit: Int) -> [Pokemon]
+    func request(with offset: Int, _ limit: Int) async -> [Pokemon]
 }

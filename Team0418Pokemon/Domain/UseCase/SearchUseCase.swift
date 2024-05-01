@@ -11,5 +11,5 @@ protocol SearchUseCase {
     func request(
         with pokemonName: String,
         _ pokemonType: PokemonType
-    ) -> [Pokemon]
+    ) async -> [Pokemon]
 }

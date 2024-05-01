@@ -8,5 +8,5 @@
 import Foundation
 
 protocol HomeUseCase {
-    func request() -> [Pokemon]
+    func request() async -> [Pokemon]
 }
