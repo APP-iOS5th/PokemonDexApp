@@ -13,4 +13,11 @@ final class PokemonAPIService: APIService {
     init(session: URLSession = .shared) {
         self.session = session
     }
+    
+    func request<T: Decodable>(with urlType: PokemonAPIUrl) async throws -> T {
+        let endpoint: Endpoint<T> = Endpoint(urlString: urlType.apiUrl)
+        let data = try await request(with: endpoint)
+        
+        return data
+    }
 }
