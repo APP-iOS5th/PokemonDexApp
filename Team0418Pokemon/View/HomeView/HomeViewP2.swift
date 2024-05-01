@@ -12,7 +12,7 @@ struct HomeViewP2: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(1..<10) { number in
+            ForEach(0..<9) { number in
                 ZStack {
                 
                     
