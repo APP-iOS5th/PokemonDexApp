@@ -28,3 +28,11 @@ struct PokemonStat {
 //        
 //    }
 }
+struct PokemonStats {
+    let hp: String
+    let attack: String
+    let defense: String
+    let specialAttack: String
+    let specialDefense: String
+    let speed: String
+}
