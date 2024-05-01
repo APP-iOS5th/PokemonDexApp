@@ -12,10 +12,14 @@ struct ListView: View {
   let max: Int
 
   var body: some View {
-    List {
-      ForEach (min..<max, id: \.self) { i in
-        ListItem(number: i, name: "\(i) 입니다.", imageUrl: "https://example.com/image.jpg")
-          .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+    NavigationStack {
+      ScrollView {
+        ForEach (min..<max, id: \.self) { i in
+//          NavigationLink() {
+            ListItem(number: i, name: "\(i) 입니다.", imageUrl: "https://example.com/image.jpg")
+              .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+//          }
+        }
       }
     }
     .navigationTitle("\(min+1) - \(max+1)")

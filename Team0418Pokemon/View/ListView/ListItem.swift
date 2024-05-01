@@ -14,7 +14,7 @@ struct ListItem: View {
   var body: some View {
     GeometryReader { geometry in
       HStack {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading) {
           Text("No. \(number)")
             .font(.subheadline)
             .fontWeight(.bold)
