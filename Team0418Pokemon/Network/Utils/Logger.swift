@@ -31,10 +31,10 @@ struct Logger {
     
     static func log(
         level: Level
-    ) -> (String) -> ((String) -> String) {
+    ) -> (String) -> ((String) -> ()) {
         return { name in
             return { message in
-                "\(level)"
+                print("\(level) \(name)\n\(message)")
             }
         }
     }
