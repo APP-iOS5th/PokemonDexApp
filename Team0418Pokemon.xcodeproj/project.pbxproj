@@ -26,6 +26,9 @@
 		83439E102BE0E7870073D526 /* PokemonAPIUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83439E0F2BE0E7870073D526 /* PokemonAPIUrl.swift */; };
 		835CC31D2BE1CC0D00BE7A9B /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CC31C2BE1CC0D00BE7A9B /* MockURLSessionProtocol.swift */; };
 		835CC31F2BE1FA5700BE7A9B /* PokemonAPIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CC31E2BE1FA5700BE7A9B /* PokemonAPIServiceMock.swift */; };
+		835CC3272BE1FE4500BE7A9B /* pokemonlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 835CC3262BE1FE4500BE7A9B /* pokemonlist.json */; };
+		835CC3292BE1FEC000BE7A9B /* poekmonspecies.json in Resources */ = {isa = PBXBuildFile; fileRef = 835CC3282BE1FEC000BE7A9B /* poekmonspecies.json */; };
+		835CC32B2BE1FEE700BE7A9B /* pokemondetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 835CC32A2BE1FEE700BE7A9B /* pokemondetail.json */; };
 		83A972492BDF9D1A0027C4BC /* Team0418PokemonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A972482BDF9D1A0027C4BC /* Team0418PokemonApp.swift */; };
 		83A9724B2BDF9D1A0027C4BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A9724A2BDF9D1A0027C4BC /* ContentView.swift */; };
 		83A9724D2BDF9D1B0027C4BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83A9724C2BDF9D1B0027C4BC /* Assets.xcassets */; };
@@ -72,6 +75,9 @@
 		83439E0F2BE0E7870073D526 /* PokemonAPIUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIUrl.swift; sourceTree = "<group>"; };
 		835CC31C2BE1CC0D00BE7A9B /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
 		835CC31E2BE1FA5700BE7A9B /* PokemonAPIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIServiceMock.swift; sourceTree = "<group>"; };
+		835CC3262BE1FE4500BE7A9B /* pokemonlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemonlist.json; sourceTree = "<group>"; };
+		835CC3282BE1FEC000BE7A9B /* poekmonspecies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poekmonspecies.json; sourceTree = "<group>"; };
+		835CC32A2BE1FEE700BE7A9B /* pokemondetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pokemondetail.json; sourceTree = "<group>"; };
 		83A972452BDF9D1A0027C4BC /* Team0418Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Team0418Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A972482BDF9D1A0027C4BC /* Team0418PokemonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team0418PokemonApp.swift; sourceTree = "<group>"; };
 		83A9724A2BDF9D1A0027C4BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 		835CC31A2BE1CBE300BE7A9B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				835CC3252BE1FDF500BE7A9B /* Static */,
 				835CC31B2BE1CBEB00BE7A9B /* Mock */,
 			);
 			path = Network;
@@ -208,6 +215,16 @@
 				835CC31E2BE1FA5700BE7A9B /* PokemonAPIServiceMock.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		835CC3252BE1FDF500BE7A9B /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				835CC32A2BE1FEE700BE7A9B /* pokemondetail.json */,
+				835CC3282BE1FEC000BE7A9B /* poekmonspecies.json */,
+				835CC3262BE1FE4500BE7A9B /* pokemonlist.json */,
+			);
+			path = Static;
 			sourceTree = "<group>";
 		};
 		83A9723C2BDF9D1A0027C4BC = {
@@ -409,6 +426,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835CC3292BE1FEC000BE7A9B /* poekmonspecies.json in Resources */,
+				835CC3272BE1FE4500BE7A9B /* pokemonlist.json in Resources */,
+				835CC32B2BE1FEE700BE7A9B /* pokemondetail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
