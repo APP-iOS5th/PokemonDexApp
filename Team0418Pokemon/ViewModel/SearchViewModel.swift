@@ -10,17 +10,17 @@ import Foundation
 @Observable
 class SearchViewModel {
     
-    private(set) var PokemonList: [Pokemon] = []
-    
-    init(){
-    }
-    
-    func Search(pokemonName: String) async {
-        do{
-            
-        } catch {
-            print(error)
-        }
-        
-    }
+//    private(set) var PokemonList: [Pokemon] = []
+//    
+//    init(){
+//    }
+//    
+//    func Search(pokemonName: String) async {
+//        do{
+//            
+//        } catch {
+//            print(error)
+//        }
+//        
+//    }
 }

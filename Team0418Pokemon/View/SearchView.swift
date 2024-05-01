@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct SearchView: View {
-    
-    //@StateObject var vm = SearchViewModel()
-    
-    @State private var InputSearch = ""
-    @State private var SelectTag: PokemonType = .All
+
+    @State private var inputsearch = ""
+    @State private var selectTag: PokemonType = .all
     
     var body: some View {
         VStack{
@@ -24,6 +22,7 @@ struct SearchView: View {
                         ForEach(PokemonType.allCases, id: \.self) { tag in
                             Button(action:{
                                 
+                                selectBtnClick(tag)
                             }){
                                 Text(tag.rawValue)
                                     .font(.caption)
@@ -31,16 +30,22 @@ struct SearchView: View {
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 5)
                                     .frame(width:60)
-                                    .background(){
-                                        if SelectTag == tag{
-                                            Capsule()
-                                                .fill(Color.primary)
-                                        }else{
-                                            Capsule()
-                                                .fill(Color.black)
-                                        }
-                                        
+                                    .background{
+                                        Capsule()
+                                            .fill(Color.black)
+                                            //.fill(Color(tag.DisplayColorName()))
                                     }
+                                //{
+                                        //if selectTag == tag{
+                                            //Capsule()
+                                                //.fill(Color(tag.DisplayColor()))
+                                        //}else{
+                                            //Capsule()
+                                               // .fill(Color(tag.DisplayColor()))
+                                            
+                                        //}
+                                        
+                                    //}
                             }
                         }
                     }
@@ -49,59 +54,40 @@ struct SearchView: View {
                 
                 //포켓몬 검색목록
                 ScrollView(.vertical){
-                    Text("꼬부기")
-//                    List(Pokemon, id: \.ID) { Pokemons in
-//                        Text("")
-//                    }
-                    //foreach
-                    //NavigationLink
+                    List{
+                        Text("test")
+                        //ForEach (pokemons, id: \.id) { pokemon in
+                            //Text("\(pokemon.name)")
+                            //NavigationLink(destination:)){
+                                
+                            //}
+                        }
+                    }
                 }
             }
             .searchable(
-                text: $InputSearch,
+                text: $inputsearch,
                 placement: .navigationBarDrawer,
                 prompt: "Find a Pokemon")
             
-            
-            
-            
-            
-            
-            
-         
-           
         }
-        
-        
-        
-        
-        
-//        ScrollView{
-//            NavigationStack{
-//                LazyVStack(spacing: 10){
-//                    
-//                    Text("123")
-//                    Text("123")
-//                    Text("123")
-//                    Text("123")
-//                    
-//                    
-//                }
-//            }
-//        } .searchable(text: $InputSearch, prompt: "Find a person")
-//        
-//        Label {
-//            Text("Fire")
-//                .font(.caption)
-//                .foregroundColor(.white)
-//        } icon: {
-//            RoundedRectangle(cornerRadius: 8)
-//                .fill(Color.red)
-//                .frame(width: 70,height: 30)
-//        }
-//        
-        
     }
+    
+    //버튼 클릭 이벤트
+    func selectBtnClick(_ selctag: PokemonType)
+    {
+        //inputsearch = selctag.rawValue
+//        switch selctag {
+//          case .all:
+//              inputsearch = selctag.rawValue
+//          case .normal:
+//              inputsearch = selctag.rawValue
+//          case .fire:
+//              inputsearch = selctag.rawValue
+//        default:
+//            break
+//        }
+//    }
 }
 
 #Preview {
