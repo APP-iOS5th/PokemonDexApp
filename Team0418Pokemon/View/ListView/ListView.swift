@@ -11,13 +11,15 @@ struct ListView: View {
   let min: Int
   let max: Int
 
+  @ObservedObject var viewModel: ListVIewModel = ListVIewModel()
+
   var body: some View {
     NavigationStack {
       ScrollView {
-        ForEach (min..<max, id: \.self) { i in
+        ForEach (viewModel.pokeList, id: \.id) { pokemon in
 //          NavigationLink() {
-            ListItem(number: i, name: "\(i) 입니다.", imageUrl: "https://example.com/image.jpg")
-              .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+          ListItem(number: pokemon.id, name: "\(pokemon.name)", imageUrl: pokemon.imageUrlString)
+              .frame(height: 100)
 //          }
         }
       }

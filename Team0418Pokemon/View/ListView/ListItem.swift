@@ -11,6 +11,7 @@ struct ListItem: View {
   let number: Int
   let name: String
   let imageUrl: String
+
   var body: some View {
     GeometryReader { geometry in
       HStack {
@@ -31,10 +32,16 @@ struct ListItem: View {
           Spacer()
         }
         .frame(width: geometry.size.width/3, alignment: .trailing)
-//          .background(.gray)
+        //          .background(.gray)
       }
       .frame(width: geometry.size.width)
-      .background(.blue)
+      .background(.white)
+      .overlay(
+        Rectangle()
+          .frame(height: 1)
+          .foregroundColor(.gray),
+        alignment: .bottom
+      )
     }
   }
 }
