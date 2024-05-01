@@ -10,15 +10,8 @@ import SwiftUI
 struct SearchView: View {
     
     //테스트용
-    let pokemonList: [Pokemon] = [
-           Pokemon(id: 1, name: "Pikachu", imageUrlString: "bolt.fill"),
-           Pokemon(id: 2, name: "Bulbasaur", imageUrlString: "leaf.fill"),
-           Pokemon(id: 3, name: "Charmander", imageUrlString: "flame.fill"),
-       ]
     
-    
-    @State private var inputSearch = ""
-    @State private var  isSelectedTag: PokemonType? = nil
+    @StateObject private var searchVM = SearchViewModel()
     
     var body: some View {
         NavigationView {
@@ -27,7 +20,9 @@ struct SearchView: View {
                     HStack(spacing: 10) {
                         ForEach(PokemonType.allCases, id: \.self) { tag in
                             Button(action:{
-                                selectBtnClick(tag)
+                                
+                                searchVM.selectBtnClick(tag)
+                                
                             }) {
                                 Text(tag.rawValue)
                                     .font(.caption)
@@ -46,7 +41,7 @@ struct SearchView: View {
                 
                 ScrollView(.vertical) {
                     VStack() {
-                        ForEach(pokemonList,  id: \.id){ pokemons in
+                        ForEach(searchVM.filteredPokemonList.prefix(5),  id: \.id){ pokemons in
                             HStack(spacing: 5){
                                 
                                 VStack(alignment: .leading, spacing: 5){
@@ -88,20 +83,13 @@ struct SearchView: View {
                 }
             }
             .navigationBarTitle("Who's that pokemon?")
-            .searchable(
-                text: $inputSearch,placement: .navigationBarDrawer,prompt: "Find a Pokemon")
-            .onAppear(){
+            .searchable(text: $searchVM.inputSearch,placement: .navigationBarDrawer,prompt: "Find a Pokemon")
+            .onSubmit(of: .search) {
+                searchVM.search()
             }
         }
     }
     
-    
-    //버튼 클릭 이벤트
-    func selectBtnClick(_ selctag: PokemonType)
-    {
-        
-            inputSearch = selctag.rawValue
-    }
 }
     
 
