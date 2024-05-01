@@ -12,4 +12,5 @@ protocol SearchUseCase {
         with pokemonName: String,
         _ pokemonType: PokemonType
     ) async -> [Pokemon]
+    func retrieveType(of pokemon: Pokemon) async -> PokemonType
 }
