@@ -35,6 +35,13 @@ struct CustomButtonStyle: ButtonStyle {
     }
 }
 
+class HomeViewUse: HomeUseCase {
+    func request() -> [Pokemon] {
+        // 실제 데이터 요청 로직을 구현합니다.
+        // 예시: 서버에서 포켓몬 목록을 가져와 반환
+        return []
+    }
+}
 
 struct HomeViewMain: View {
     var body: some View {

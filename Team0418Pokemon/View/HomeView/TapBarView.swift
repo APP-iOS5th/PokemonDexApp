@@ -46,7 +46,7 @@ func CustomTabItem(imageName: String, title: String, isActive: Bool) -> some Vie
         if isActive {
             Text(title)
                     .font(.system(size: 13)).bold()
-                .foregroundColor(isActive ? .white : .gray)
+                .foregroundColor(.white)
         }
         Spacer()
     }
