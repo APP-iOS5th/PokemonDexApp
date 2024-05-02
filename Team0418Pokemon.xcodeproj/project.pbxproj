@@ -21,12 +21,6 @@
 		83A9725A2BDF9D1B0027C4BC /* Team0418PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A972592BDF9D1B0027C4BC /* Team0418PokemonTests.swift */; };
 		83A972642BDF9D1B0027C4BC /* Team0418PokemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A972632BDF9D1B0027C4BC /* Team0418PokemonUITests.swift */; };
 		83A972662BDF9D1B0027C4BC /* Team0418PokemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A972652BDF9D1B0027C4BC /* Team0418PokemonUITestsLaunchTests.swift */; };
-		EB03F0832BE0E5EB00A0B28B /* HomeViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F0802BE0E2E700A0B28B /* HomeViewMain.swift */; };
-		EB03F0842BE0E60E00A0B28B /* HomeViewP2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F0792BE0E29800A0B28B /* HomeViewP2.swift */; };
-		EB03F0852BE0E60E00A0B28B /* HomeViewP3.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F07C2BE0E2A400A0B28B /* HomeViewP3.swift */; };
-		EB03F08A2BE0FBA800A0B28B /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F0892BE0FBA800A0B28B /* TabBarViewModel.swift */; };
-		EB03F08C2BE0FBDE00A0B28B /* TapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03F08B2BE0FBDE00A0B28B /* TapBarView.swift */; };
-		EBDC92302BE28636004D6891 /* HomeViewMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC922F2BE28636004D6891 /* HomeViewMainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,12 +58,6 @@
 		83A9725F2BDF9D1B0027C4BC /* Team0418PokemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Team0418PokemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A972632BDF9D1B0027C4BC /* Team0418PokemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team0418PokemonUITests.swift; sourceTree = "<group>"; };
 		83A972652BDF9D1B0027C4BC /* Team0418PokemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team0418PokemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EB03F0792BE0E29800A0B28B /* HomeViewP2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewP2.swift; sourceTree = "<group>"; };
-		EB03F07C2BE0E2A400A0B28B /* HomeViewP3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewP3.swift; sourceTree = "<group>"; };
-		EB03F0802BE0E2E700A0B28B /* HomeViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMain.swift; sourceTree = "<group>"; };
-		EB03F0892BE0FBA800A0B28B /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
-		EB03F08B2BE0FBDE00A0B28B /* TapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarView.swift; sourceTree = "<group>"; };
-		EBDC922F2BE28636004D6891 /* HomeViewMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +186,6 @@
 		83A972722BDF9D240027C4BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EBEEB5612BE1DE65007856BE /* HomeView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,29 +200,8 @@
 		83A9727F2BDF9E540027C4BC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EBEEB5602BE1DDDC007856BE /* HomeViewModel */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		EBEEB5602BE1DDDC007856BE /* HomeViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EB03F0892BE0FBA800A0B28B /* TabBarViewModel.swift */,
-				EBDC922F2BE28636004D6891 /* HomeViewMainModel.swift */,
-			);
-			path = HomeViewModel;
-			sourceTree = "<group>";
-		};
-		EBEEB5612BE1DE65007856BE /* HomeView */ = {
-			isa = PBXGroup;
-			children = (
-				EB03F08B2BE0FBDE00A0B28B /* TapBarView.swift */,
-				EB03F0802BE0E2E700A0B28B /* HomeViewMain.swift */,
-				EB03F0792BE0E29800A0B28B /* HomeViewP2.swift */,
-				EB03F07C2BE0E2A400A0B28B /* HomeViewP3.swift */,
-			);
-			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,15 +338,9 @@
 				83439DF12BE0DDF00073D526 /* HomeUseCase.swift in Sources */,
 				83439DF52BE0DF0F0073D526 /* DetailUseCase.swift in Sources */,
 				83439DF32BE0DE500073D526 /* PokemonDetail.swift in Sources */,
-				EBDC92302BE28636004D6891 /* HomeViewMainModel.swift in Sources */,
+				83A9724B2BDF9D1A0027C4BC /* ContentView.swift in Sources */,
 				83439DEB2BE0D5E00073D526 /* ListUseCase.swift in Sources */,
 				83439DEF2BE0DDCA0073D526 /* PokemonType.swift in Sources */,
-				EB03F08C2BE0FBDE00A0B28B /* TapBarView.swift in Sources */,
-				EB03F0832BE0E5EB00A0B28B /* HomeViewMain.swift in Sources */,
-				EB03F0842BE0E60E00A0B28B /* HomeViewP2.swift in Sources */,
-				83A9724B2BDF9D1A0027C4BC /* ContentView.swift in Sources */,
-				EB03F0852BE0E60E00A0B28B /* HomeViewP3.swift in Sources */,
-				EB03F08A2BE0FBA800A0B28B /* TabBarViewModel.swift in Sources */,
 				83A972492BDF9D1A0027C4BC /* Team0418PokemonApp.swift in Sources */,
 				83439DE72BE0D53F0073D526 /* Pokemon.swift in Sources */,
 			);
