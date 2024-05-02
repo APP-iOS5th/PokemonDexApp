@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FirstDetailView: View {
-    @State var id : Int
-    @State var type = ""
-    @State var genus = ""
-    @State var name = ""
+    @State var id : Int = 1
+    @State var pkmtype: PokemonType = .ice
+    @State var genus = "Lizard Pokemon"
+    @State var name = "파이리"
     var body: some View {
         VStack{
             ZStack{
@@ -21,21 +21,21 @@ struct FirstDetailView: View {
                             Capsule() //타원
                                 .fill(Color.black)
                                 .frame(width:90, height: 30)
-                            Text("No.")
+                            Text("No.\(id)")
                                 .foregroundStyle(.white)
                                 .font(.footnote)
                         }
                         ZStack {
                             Capsule() //타원
-                                .fill(Color.black)
+                                .fill(Color(UIColor(hex: pkmtype.DisplayColorName())))
                                 .frame(width:90, height: 30)
-                            Text("타입")
+                            Text("\(pkmtype.rawValue)")
                                 .foregroundStyle(.white)
                         }
                     }
-                    Text("포켓몬이름")
+                    Text("\(name)")
                         .font(.largeTitle)
-                    Text("속성")
+                    Text("\(genus)")
                         .font(.footnote)
                     
                 }
@@ -48,5 +48,5 @@ struct FirstDetailView: View {
 }
 
 #Preview {
-    FirstDetailView(id: 1)
+    FirstDetailView( )
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2A4A502BE31DF0003D3EEF /* FirstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A4F2BE31DF0003D3EEF /* FirstModel.swift */; };
 		3B8185412BE1C75A004234EC /* FirstDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8185402BE1C75A004234EC /* FirstDetailView.swift */; };
 		3B8185432BE1CAC8004234EC /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8185422BE1CAC8004234EC /* SecondView.swift */; };
 		3B8185452BE1CE27004234EC /* PkmImgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8185442BE1CE27004234EC /* PkmImgView.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B2A4A4F2BE31DF0003D3EEF /* FirstModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstModel.swift; path = Team0418Pokemon/FirstModel.swift; sourceTree = SOURCE_ROOT; };
 		3B8185402BE1C75A004234EC /* FirstDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstDetailView.swift; path = Team0418Pokemon/FirstDetailView.swift; sourceTree = SOURCE_ROOT; };
 		3B8185422BE1CAC8004234EC /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondView.swift; path = Team0418Pokemon/SecondView.swift; sourceTree = SOURCE_ROOT; };
 		3B8185442BE1CE27004234EC /* PkmImgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PkmImgView.swift; path = Team0418Pokemon/PkmImgView.swift; sourceTree = SOURCE_ROOT; };
@@ -212,6 +214,7 @@
 		83A9727F2BDF9E540027C4BC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3B2A4A4F2BE31DF0003D3EEF /* FirstModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				3B8185432BE1CAC8004234EC /* SecondView.swift in Sources */,
 				83439DEB2BE0D5E00073D526 /* ListUseCase.swift in Sources */,
 				83439DEF2BE0DDCA0073D526 /* PokemonType.swift in Sources */,
+				3B2A4A502BE31DF0003D3EEF /* FirstModel.swift in Sources */,
 				83A972492BDF9D1A0027C4BC /* Team0418PokemonApp.swift in Sources */,
 				83439DE72BE0D53F0073D526 /* Pokemon.swift in Sources */,
 				3B8185412BE1C75A004234EC /* FirstDetailView.swift in Sources */,

@@ -17,7 +17,7 @@ struct PokemonDetail: Identifiable {
     
 }
 
-struct PokemonStat {
+struct PokemonStat: Hashable {
     let hp: Int
     let attack: Int
     let defense: Int
@@ -25,13 +25,5 @@ struct PokemonStat {
     let specialDefense: Int
     let speed: Int
     
-}
-struct PokemonStats {
-    let hp: String
-    let attack: String
-    let defense: String
-    let specialAttack: String
-    let specialDefense: String
-    let speed: String
 }
 
