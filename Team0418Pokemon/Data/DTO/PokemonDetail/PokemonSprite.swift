@@ -1,18 +1,11 @@
 //
-//  PokemonDetailDTO.swift
+//  PokemonSprite.swift
 //  Team0418Pokemon
 //
-//  Created by jinwoong Kim on 4/30/24.
+//  Created by jinwoong Kim on 5/2/24.
 //
 
 import Foundation
-
-struct PokemonDetailDTO: Decodable {
-    let id: Int
-    let name: String
-    let sprites: PokemonSprite
-    let types: [PokemonTypesDTO]
-}
 
 struct PokemonSprite: Decodable {
     let frontDefault: String
@@ -26,14 +19,4 @@ struct PokemonSprite: Decodable {
         case frontShiny = "front_shiny"
         case backShiny = "back_shiny"
     }
-}
-
-struct PokemonTypesDTO: Decodable {
-    let slot: Int
-    let type: PokemonTypeDTO
-}
-
-struct PokemonTypeDTO: Decodable {
-    let name: String
-    let url: String
 }
