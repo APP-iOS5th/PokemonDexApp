@@ -91,6 +91,7 @@ struct CustomToolbar: View {
 
 struct CustomToolbar2: View {
     @Environment(\.dismiss) private var dismiss
+    @State var isNeedBack : Bool = false
     var body: some View {
 
         HStack {
@@ -102,8 +103,8 @@ struct CustomToolbar2: View {
                     .foregroundColor(.blue)
                     .overlay(
                         Circle()
-                            .stroke(Color.white.opacity(0.9), lineWidth: 6)
-                    )
+                            .stroke(Color.white.opacity(0.9), lineWidth: 6))
+                    .overlay( Image(isNeedBack ? "arrow.left.circle" : "circle.dotted"))
                     .padding()
                 
                 Spacer()
@@ -111,6 +112,38 @@ struct CustomToolbar2: View {
         }  
     }
 }
+
+func buttonTapped(_ button: String) -> String {
+        
+        switch button {
+        case "1":
+            return "0001-0151"
+        case "2":
+            return "0152-0251"
+        case "3":
+            return "0252-0386"
+        case "4":
+            return "0387-0493"
+        case "5":
+            return "0494-0649"
+        case "6":
+            return "0650-0721"
+        case "7":
+            return "0722-0809"
+        case "8":
+            return "0810-0905"
+        case "9":
+            return "0906-1025"
+        default:
+            return "0001-0151"
+        }
+    }
+
+
+
+
+
+
 #Preview {
     HomeViewMainModel()
 }

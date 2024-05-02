@@ -14,7 +14,7 @@ struct HomeViewP2: View {
             
             Text("This is A TestView").font(.largeTitle)
         }.navigationBarBackButtonHidden(true)
-           
+          
     }
 }
 #Preview {

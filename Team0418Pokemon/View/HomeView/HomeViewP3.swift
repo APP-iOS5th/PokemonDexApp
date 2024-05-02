@@ -11,7 +11,7 @@ struct HomeViewP3: View {
     var body: some View {
         ZStack {
             Color.red.opacity(0.9).edgesIgnoringSafeArea(.all)
-            
+            Text("This is A TestView").font(.largeTitle)
         }
     }
 }

@@ -17,7 +17,8 @@ struct CustomButton: View {
     
     var body: some View {
         NavigationView {
-            ZStack{                Color.red.opacity(0.9).edgesIgnoringSafeArea(.all)
+            ZStack{
+                Color.red.opacity(0.9).edgesIgnoringSafeArea(.all)
                 
                 Rectangle()
                     .frame(height: 480)
@@ -26,7 +27,7 @@ struct CustomButton: View {
                     .cornerRadius(20)
                 
                 LazyVGrid(columns: columns, spacing: 25) {
-                    ForEach(pokemons, id: \.id) { pokemon in
+                    ForEach(pokemons) { pokemon in
                         ZStack {
                             Button(action: {
                                 self.navigate = true
@@ -35,7 +36,7 @@ struct CustomButton: View {
                                     .frame(maxWidth: 90)
                                     .background(.white.opacity(0.8))
                                     .cornerRadius(30)
-                                Text(pokemon.name)
+                                Text(buttonTapped(pokemon.name))
                                     .font(.system(size: 14))
                                     .bold()
                                     .foregroundColor(.white)
