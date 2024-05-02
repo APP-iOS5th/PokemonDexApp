@@ -11,6 +11,7 @@ enum PokemonAPIUrl {
     case list(offset: Int, limit: Int)
     case detail(Int)
     case species(Int)
+    case rawUrl(String)
     
     var apiUrl: String {
         switch self {
@@ -20,6 +21,8 @@ enum PokemonAPIUrl {
                 return "https://pokeapi.co/api/v2/pokemon/\(id)"
             case let .species(id):
                 return "https://pokeapi.co/api/v2/pokemon-species/\(id)"
+            case let .rawUrl(urlString):
+                return urlString
         }
     }
 }
