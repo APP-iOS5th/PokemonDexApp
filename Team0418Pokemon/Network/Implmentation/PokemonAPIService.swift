@@ -45,3 +45,40 @@ extension PokemonAPIService: ListUseCase {
         )
     }
 }
+
+extension PokemonAPIService: HomeUseCase {
+    func request() async -> [Pokemon] {
+        do {
+            return try await fetchFirePokemons()
+        } catch {
+            Logger.errorLog("Other Error")(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
+    private func fetchFirePokemons() async throws -> [Pokemon] {
+        try await withThrowingTaskGroup(
+            of: PokemonDetailDTO.self,
+            returning: [Pokemon].self
+        ) { group in
+            let dexIds = [4, 155, 255, 390, 498, 653, 725, 813, 909]
+            
+            for id in dexIds {
+                group.addTask { try await self.request(with: .detail(id)) }
+            }
+            
+            var pokemons: [Pokemon] = []
+            for try await result in group {
+                let pokemon = Pokemon(
+                    id: result.id,
+                    name: result.name,
+                    imageUrlString: result.sprites.frontDefault
+                )
+                pokemons.append(pokemon)
+            }
+            
+            return pokemons
+        }
+    }
+}
