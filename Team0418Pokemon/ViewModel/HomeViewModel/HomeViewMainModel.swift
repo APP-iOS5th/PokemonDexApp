@@ -104,7 +104,7 @@ struct CustomToolbar2: View {
                     .overlay(
                         Circle()
                             .stroke(Color.white.opacity(0.9), lineWidth: 6))
-                    .overlay( Image(isNeedBack ? "arrow.left.circle" : "circle.dotted"))
+                   
                     .padding()
                 
                 Spacer()
