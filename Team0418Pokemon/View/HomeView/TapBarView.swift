@@ -15,7 +15,7 @@ struct TapBarView: View {
             HomeViewMain().tag(0)
             /*SearchView()*/ HomeViewP2().tag(1)
             /*EXTRAView()*/HomeViewP3().tag(2)
-        }.background(.black)
+        }
         
         ZStack{
             HStack {

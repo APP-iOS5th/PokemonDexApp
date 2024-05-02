@@ -9,10 +9,10 @@ import SwiftUI
 
 struct HomeViewP3: View {
     var body: some View {
-        VStack(spacing: 10) {
-            Text("3").font(.largeTitle)
+        ZStack {
+            Color.red.opacity(0.9).edgesIgnoringSafeArea(.all)
             
-        }.padding()
+        }
     }
 }
 

@@ -9,59 +9,45 @@ import SwiftUI
 
 
 struct CustomButton: View {
+    @State var netServ = FakeNetServ()
+    @State private var pokemons: [Pokemon] = []
+    @State private var navigate = false
+    
     let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
     
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 25) {
-            ForEach(0..<9) { number in
-                ZStack {
-                    Button(action: {buttonTapped(number)}) {
-                        VStack(spacing: 3) { Image("Homeicon_\(number)")
-                                .resizable()
-                                .frame(height: 95)
-                                .frame(maxWidth: 95)
-                                .background(.white.opacity(0.8))
-                                .cornerRadius(30)
-                            Text(buttonTapped(number))
-                                .font(.system(size: 14))
-                                .bold()
-                                .foregroundColor(.white)
+        NavigationView {
+            ZStack{                Color.red.opacity(0.9).edgesIgnoringSafeArea(.all)
+                
+                Rectangle()
+                    .frame(height: 480)
+                    .frame(maxWidth: 360)
+                    .background(Color.black.opacity(0.8))
+                    .cornerRadius(20)
+                
+                LazyVGrid(columns: columns, spacing: 25) {
+                    ForEach(pokemons, id: \.id) { pokemon in
+                        ZStack {
+                            Button(action: {
+                                self.navigate = true
+                            }) { VStack(spacing: 3) { AsyncImage(url: URL(string: pokemon.imageUrlString)) { image in image.resizable() } placeholder: {ProgressView()}
+                                    .frame(height: 90)
+                                    .frame(maxWidth: 90)
+                                    .background(.white.opacity(0.8))
+                                    .cornerRadius(30)
+                                Text(pokemon.name)
+                                    .font(.system(size: 14))
+                                    .bold()
+                                    .foregroundColor(.white)
+                                NavigationLink(destination: HomeViewP2(), isActive: $navigate) {}
+                            }
+                            }
                         }
                     }
-                }.frame(maxWidth: 400)
+                }.task {pokemons = await netServ.request()}
+                    .padding(.horizontal, 40)
+                
             }
-        }.frame(height: 515)
-            .frame(maxWidth: 330)
-            .background(Color.black.opacity(0.8))
-            .cornerRadius(20)
-
-    }
-    
-    
-    func buttonTapped(_ button: Int) -> String {
-        
-        switch button {
-        case 0:
-            return "0001-0151"
-        case 1:
-            return "0152-0251"
-        case 2:
-            return "0252-0386"
-        case 3:
-            return "0387-0493"
-        case 4:
-            return "0494-0649"
-        case 5:
-            return "0650-0721"
-        case 6:
-            return "0722-0809"
-        case 7:
-            return "0810-0905"
-        case 8:
-            return "0906-1025"
-            
-        default:
-            return " "
         }
     }
 }
@@ -72,49 +58,24 @@ struct HomeViewMain: View {
         NavigationView {
             ZStack {
                 Color.red.opacity(0.9).edgesIgnoringSafeArea(.all)
-                
-                VStack {
-                    CustomButton()
-                }.customButtonStyle()
-                    .navigationBarTitle("POKEMON DOGAM", displayMode: .inline)
-                
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            HStack(spacing: 4) {
-                                Image(systemName: "circle.fill")
-                                    .font(.system(size: 17))
-                                    .foregroundColor(.red)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color.black.opacity(0.8), lineWidth: 3))
-                                Image(systemName: "circle.fill")
-                                    .font(.system(size: 17))
-                                    .foregroundColor(.yellow)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color.black.opacity(0.8), lineWidth: 3))
-                                Image(systemName: "circle.fill")
-                                    .font(.system(size: 17))
-                                    .foregroundColor(.green)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color.black.opacity(0.8), lineWidth: 3))
-                            }
-                            .padding()
-                        }
-                        
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Image(systemName: "circle.fill")
-                                .font(.system(size: 40))
-                                .foregroundColor(.blue)
-                                .overlay(
-                                    Circle()
-                                        .stroke(Color.white.opacity(0.9), lineWidth: 6)
-                                )
-                                .padding()
-                        }
+                ZStack{
+                    Rectangle()
+                        .frame(height: 550)
+                        .frame(maxWidth: 370)
+                        .background(.white.opacity(0.4))
+                        .cornerRadius(30)
+                    VStack {
+                        CustomButton()
+                    }}
+                .navigationBarTitle("Pokédex", displayMode: .inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        CustomToolbar()
                     }
-                    .padding()
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        CustomToolbar2()
+                    }
+                }
             }
         }
     }
