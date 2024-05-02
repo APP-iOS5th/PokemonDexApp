@@ -23,7 +23,7 @@ extension Sequence {
         return values
     }
     
-    func cocurrentMap<T>(
+    func concurrentMap<T>(
         _ transform: @escaping (Element) async throws -> T
     ) async rethrows -> [T] {
         let tasks = map { element in
