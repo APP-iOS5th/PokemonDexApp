@@ -19,6 +19,10 @@ final class PokemonListUseCaseTest: XCTestCase {
         apiService = PokemonAPIService(session: urlSession)
     }
     
+    override func tearDownWithError() throws {
+        apiService = nil
+    }
+    
     func test_request() async throws {
         guard let path = Bundle(for: Team0418PokemonTests.self).url(forResource: "pokemonlist", withExtension: "json"),
               let pokemonListData = try? Data(contentsOf: path) else {
@@ -54,9 +58,5 @@ final class PokemonListUseCaseTest: XCTestCase {
         let networkingResult = await apiService.request(with: 0, 151)
         
         XCTAssert(networkingResult.count == limit - offset)
-    }
-
-    override func tearDownWithError() throws {
-        apiService = nil
     }
 }
