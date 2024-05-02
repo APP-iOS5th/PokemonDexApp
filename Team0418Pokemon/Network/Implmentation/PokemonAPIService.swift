@@ -21,3 +21,27 @@ final class PokemonAPIService: APIService {
         return data
     }
 }
+
+extension PokemonAPIService: ListUseCase {
+    func request(with offset: Int, _ limit: Int) async -> [Pokemon] {
+        do {
+            let rangedPokemonData: PokemonListDTO = try await request(with: .list(offset: offset, limit: limit))
+            return try await rangedPokemonData.results.concurrentMap(mapping(_:))
+        } catch let error as HttpError {
+            Logger.errorLog("HttpError")(error.localizedDescription)
+        } catch {
+            Logger.errorLog("OtherError")(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
+    private func mapping(_ item: PokemonListItem) async throws -> Pokemon {
+        let result: PokemonDetailDTO = try await request(with: .rawUrl(item.url))
+        return Pokemon(
+            id: result.id,
+            name: result.name,
+            imageUrlString: result.sprites.frontDefault
+        )
+    }
+}
