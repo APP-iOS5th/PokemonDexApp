@@ -18,7 +18,7 @@ final class MockURLSessionProtocol: URLProtocol {
         return request
     }
     
-    override func stopLoading() {
+    override func startLoading() {
         guard let handler = MockURLSessionProtocol.loadingHandler else { return }
         let (response, data) = handler(request)
         
@@ -27,5 +27,9 @@ final class MockURLSessionProtocol: URLProtocol {
             client?.urlProtocol(self, didLoad: data)
         }
         client?.urlProtocolDidFinishLoading(self)
+    }
+    
+    override func stopLoading() {
+        
     }
 }
