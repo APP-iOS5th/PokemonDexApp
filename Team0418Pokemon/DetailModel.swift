@@ -15,7 +15,7 @@ final class DetailModel:ObservableObject {
     
     init(service: DetailUseCase) {
         self.service = service
-        self.pokeDtail = PokemonDetail(id: 0, type: .normal, name: "", imageUrlString: "", stat: PokemonStat(hp: 0, attack: 0, defense: 0, specialAttack: 0, specialDefense: 0, speed: 0), genus: "")
+        self.pokeDtail = PokemonDetail(id: 0, type: .normal, name: "", imageUrlString: "", stat: PokemonStat(hp: 100, attack: 80, defense: 70, specialAttack: 90, specialDefense: 80, speed: 110), genus: "")
         
 
     }
@@ -31,7 +31,7 @@ final class MockService: DetailUseCase  {
         return PokemonDetail(id: 1, type: .grass, name: "bulbasaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", stat: stats , genus: "seed Pokemon")
     }
     lazy var pomkomData: PokemonDetail = {
-        PokemonDetail(id: 1, type: .grass, name: "bulbasaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", stat: self.stats, genus: "seed Pokemon")
+        PokemonDetail(id: 1, type: .grass, name: "bulbasaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", stat: stats, genus: "seed Pokemon")
     }()
 }
 

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct SecondView: View {
-    let pkmStats = [
-        PokemonStat(hp: 100, attack: 80, defense: 70, specialAttack: 90, specialDefense: 80, speed: 110),
-    ]
+    @StateObject private var detailModel = DetailModel(service: MockService())
     let gridItem:[GridItem] = [
         GridItem(.flexible(minimum:30, maximum:300)),
         GridItem(.flexible(minimum:30, maximum:300))
@@ -40,17 +38,17 @@ struct SecondView: View {
                                     .foregroundColor(Color.red)
                                     switch (index) {
                                     case 0:
-                                        Text("\(pkmStats[0].hp)")
+                                        Text("\(detailModel.pokeDtail.stat.hp)")
                                     case 1:
-                                        Text("\(pkmStats[0].attack)")
+                                        Text("\(detailModel.pokeDtail.stat.attack)")
                                     case 2:
-                                        Text("\(pkmStats[0].defense)")
+                                        Text("\(detailModel.pokeDtail.stat.defense)")
                                     case 3:
-                                        Text("\(pkmStats[0].specialAttack)")
+                                        Text("\(detailModel.pokeDtail.stat.specialAttack)")
                                     case 4:
-                                        Text("\(pkmStats[0].specialDefense)")
+                                        Text("\(detailModel.pokeDtail.stat.specialDefense)")
                                     case 5:
-                                        Text("\(pkmStats[0].speed)")
+                                        Text("\(detailModel.pokeDtail.stat.speed)")
                                     default :
                                         Text("error")
                                     }

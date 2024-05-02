@@ -7,26 +7,24 @@
 
 import Foundation
 
-let pkmStats = [
-    PokemonStat(hp: 100, attack: 80, defense: 70, specialAttack: 90, specialDefense: 80, speed: 110),
-]
+private var detailModel = DetailModel(service: MockService())
 
 func getWidt(for index: Int) ->CGFloat {
 
     
     switch (index) {
     case 0:
-        return CGFloat(pkmStats[0].hp)
+        return CGFloat(detailModel.pokeDtail.stat.hp)
     case 1:
-        return CGFloat(pkmStats[0].attack)
+        return CGFloat(detailModel.pokeDtail.stat.attack)
     case 2:
-        return CGFloat(pkmStats[0].defense)
+        return CGFloat(detailModel.pokeDtail.stat.defense)
     case 3:
-        return CGFloat(pkmStats[0].specialAttack)
+        return CGFloat(detailModel.pokeDtail.stat.specialAttack)
     case 4:
-        return CGFloat(pkmStats[0].specialDefense)
+        return CGFloat(detailModel.pokeDtail.stat.specialDefense)
     case 5:
-        return CGFloat(pkmStats[0].speed)
+        return CGFloat(detailModel.pokeDtail.stat.speed)
     default :
         return 50
     }
