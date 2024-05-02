@@ -3,7 +3,7 @@
 //  Team0418Pokemon
 //
 //  Created by 차지용 on 5/1/24.
-//
+//first
 
 import SwiftUI
 
