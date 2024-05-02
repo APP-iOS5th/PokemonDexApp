@@ -37,16 +37,19 @@ struct FirstDetailView: View {
                             Capsule() //타원
                                 .fill(Color(UIColor(hex: pkmtype.DisplayColorName())))
                                 .frame(width:90, height: 30)
-                            if(detailModel.pokeDtail.type.isEmpt){
-                                Text("\(pkmtype.rawValue)")
-                                    .foregroundStyle(.white)
+                            if(detailModel.pokeDtail.id != 0 ){
+                                Text(detailModel.pokeDtail.type.rawValue).foregroundStyle(.white)
                             }
                         }
                     }
-                    Text("\(name)")
-                        .font(.largeTitle)
-                    Text("\(genus)")
-                        .font(.footnote)
+                    if(detailModel.pokeDtail.id != 0){
+                        Text(detailModel.pokeDtail.name)
+                            .font(.largeTitle)
+                    }
+                    if(detailModel.pokeDtail.id != 0){
+                        Text(detailModel.pokeDtail.genus)
+                            .font(.footnote)
+                    }
                     
                 }
                 
