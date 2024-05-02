@@ -63,7 +63,6 @@ extension PokemonAPIService: HomeUseCase {
             returning: [Pokemon].self
         ) { group in
             let dexIds = [4, 155, 255, 390, 498, 653, 725, 813, 909]
-            
             for id in dexIds {
                 group.addTask { try await self.request(with: .detail(id)) }
             }
