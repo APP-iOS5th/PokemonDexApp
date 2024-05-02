@@ -11,9 +11,6 @@ struct FirstDetailView: View {
     @StateObject private var detailModel = DetailModel(service: MockService())
     var id: Int
     var idToSend: Int // PkmImgView에서 사용할 id 값
-    @State var pkmtype: PokemonType = .fire
-    @State var genus = "Lizard Pokemon"
-    @State var name = "파이리"
     var body: some View {
         VStack{
             ZStack{
@@ -35,7 +32,7 @@ struct FirstDetailView: View {
                         }
                         ZStack {
                             Capsule() //타원
-                                .fill(Color(UIColor(hex: pkmtype.DisplayColorName())))
+                                .fill(Color(UIColor(hex: detailModel.pokeDtail.type.DisplayColorName())))
                                 .frame(width:90, height: 30)
                             if(detailModel.pokeDtail.id != 0 ){
                                 Text(detailModel.pokeDtail.type.rawValue).foregroundStyle(.white)
