@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct SearchView: View {
-    
-    //테스트용
-    
-    @StateObject private var searchVM = SearchViewModel()
+
+    @StateObject private var searchVM = SearchViewModel(searchUseService: FakeSearchService())
     
     var body: some View {
         NavigationView {
