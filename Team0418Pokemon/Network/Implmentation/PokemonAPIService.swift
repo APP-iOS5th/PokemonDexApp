@@ -49,7 +49,7 @@ extension PokemonAPIService: ListUseCase {
 extension PokemonAPIService: HomeUseCase {
     func request() async -> [Pokemon] {
         do {
-            return try await fetchFirePokemons()
+            return try await fetchFirePokemons().sorted { $0.id < $1.id }
         } catch {
             Logger.errorLog("Other Error")(error.localizedDescription)
         }
