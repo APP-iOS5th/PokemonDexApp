@@ -10,6 +10,7 @@ import Foundation
 enum PokemonAPIUrl {
     case list(offset: Int, limit: Int)
     case detail(Int)
+    case detailString(String)
     case species(Int)
     case rawUrl(String)
     
@@ -19,6 +20,8 @@ enum PokemonAPIUrl {
                 return "https://pokeapi.co/api/v2/pokemon?limit=\(limit)&offset=\(offset)"
             case let .detail(id):
                 return "https://pokeapi.co/api/v2/pokemon/\(id)"
+            case let .detailString(name):
+                return "https://pokeapi.co/api/v2/pokemon/\(name)"
             case let .species(id):
                 return "https://pokeapi.co/api/v2/pokemon-species/\(id)"
             case let .rawUrl(urlString):
