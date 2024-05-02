@@ -81,3 +81,63 @@ extension PokemonAPIService: HomeUseCase {
         }
     }
 }
+
+extension PokemonAPIService: DetailUseCase {
+    func request(with pokemonId: Int) async -> PokemonDetail {
+        do {
+            async let speciesData: PokemonSpeciesDTO = try request(with: .species(pokemonId))
+            async let detailData: PokemonDetailDTO = try request(with: .detail(pokemonId))
+            
+            let (fetchedSpeciesData, fetchedDetailData) = try await (speciesData, detailData)
+            let composedPokemonStat = composePokemonStat(with: fetchedDetailData.stats)
+            let pokemonStat = PokemonStat(
+                ht: composedPokemonStat["hp" ,default: 0],
+                attack: composedPokemonStat["attack" ,default: 0],
+                defense: composedPokemonStat["defense" ,default: 0],
+                specialAttack: composedPokemonStat["special-attack" ,default: 0],
+                specialDefense: composedPokemonStat["special-defense" ,default: 0],
+                speed: composedPokemonStat["speed" ,default: 0]
+            )
+            
+            return PokemonDetail(
+                id: fetchedDetailData.id,
+                type: PokemonType(
+                    rawValue: fetchedDetailData
+                        .types[0]
+                        .type
+                        .name
+                ) ?? .water,
+                name: fetchedDetailData.name,
+                imageUrlString: fetchedDetailData.sprites.frontDefault,
+                stat: pokemonStat,
+                genus: fetchedSpeciesData.genera[0].genus
+            )
+        } catch {
+            Logger.errorLog("Ohter Error")(error.localizedDescription)
+        }
+        Logger.warningLog("This Result is weird.")("Do not use this data which not contain url string.")
+        return PokemonDetail(
+            id: -1,
+            type: .water,
+            name: "",
+            imageUrlString: "",
+            stat: PokemonStat(
+                ht: 0,
+                attack: 0,
+                defense: 0,
+                specialAttack: 0,
+                specialDefense: 0,
+                speed: 0
+            ),
+            genus: ""
+        )
+    }
+    
+    private func composePokemonStat(
+        with pokemonStats: [PokemonStatsDTO]
+    ) -> [String: Int] {
+        pokemonStats.reduce(into: [:]) { partialResult, pokemonDTO in
+            partialResult[pokemonDTO.stat.name, default: 0] = pokemonDTO.baseStat
+        }
+    }
+}
