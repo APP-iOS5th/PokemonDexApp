@@ -10,21 +10,24 @@ import SwiftUI
 struct ListView: View {
   let min: Int
   let max: Int
-
-  @ObservedObject var viewModel: ListVIewModel = ListVIewModel()
+  
+  @State var isLoading: Bool = false
+  @State var viewModel: ListVIewModel = ListVIewModel(service: MockService())
 
   var body: some View {
-    NavigationStack {
-      ScrollView {
-        ForEach (viewModel.pokeList, id: \.id) { pokemon in
-//          NavigationLink() {
-          ListItem(number: pokemon.id, name: "\(pokemon.name)", imageUrl: pokemon.imageUrlString)
-              .frame(height: 100)
-//          }
-        }
+    VStack {
+      if isLoading {
+        ProgressView()
+      } else {
+        ListContentsView(min: min, max: max, pokemonList: viewModel.pokeList)
       }
+
     }
-    .navigationTitle("\(min+1) - \(max+1)")
+    .task {
+      isLoading = true
+      await viewModel.loadList(with: min, limit: max - min + 1)
+      isLoading = false
+    }
   }
 }
 
