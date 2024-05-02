@@ -36,7 +36,7 @@ struct SecondView: View {
                                     .frame(width: 100)
                                     .foregroundColor(Color.blue)
                                 RoundedRectangle(cornerRadius: 20)
-                                    .frame(width:50)
+                                    .frame(width: getWidt(for: index))
                                     .foregroundColor(Color.red)
                                     switch (index) {
                                     case 0:

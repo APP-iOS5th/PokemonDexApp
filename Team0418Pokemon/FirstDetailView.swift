@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FirstDetailView: View {
     @State var id : Int = 1
-    @State var pkmtype: PokemonType = .ice
+    @State var pkmtype: PokemonType = .fire
     @State var genus = "Lizard Pokemon"
     @State var name = "파이리"
     var body: some View {
