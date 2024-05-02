@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8335C7232BE374BE00D2026D /* SearchedPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8335C7222BE374BE00D2026D /* SearchedPokemon.swift */; };
 		8335C71F2BE365D000D2026D /* PokemonHomeUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8335C71E2BE365D000D2026D /* PokemonHomeUseCaseTest.swift */; };
 		83439DE72BE0D53F0073D526 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83439DE62BE0D53F0073D526 /* Pokemon.swift */; };
 		83439DEB2BE0D5E00073D526 /* ListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83439DEA2BE0D5E00073D526 /* ListUseCase.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8335C7222BE374BE00D2026D /* SearchedPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedPokemon.swift; sourceTree = "<group>"; };
 		8335C71E2BE365D000D2026D /* PokemonHomeUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonHomeUseCaseTest.swift; sourceTree = "<group>"; };
 		83439DE62BE0D53F0073D526 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		83439DEA2BE0D5E00073D526 /* ListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUseCase.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				83439DE62BE0D53F0073D526 /* Pokemon.swift */,
 				83439DF22BE0DE500073D526 /* PokemonDetail.swift */,
+				8335C7222BE374BE00D2026D /* SearchedPokemon.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				83439DEF2BE0DDCA0073D526 /* PokemonType.swift in Sources */,
 				835CC32E2BE2092F00BE7A9B /* Logger.swift in Sources */,
 				83A972492BDF9D1A0027C4BC /* Team0418PokemonApp.swift in Sources */,
+				8335C7232BE374BE00D2026D /* SearchedPokemon.swift in Sources */,
 				83439DE72BE0D53F0073D526 /* Pokemon.swift in Sources */,
 				838FF4E72BE3360800B30B28 /* Sequence+.swift in Sources */,
 				83439E0B2BE0E6AB0073D526 /* Endpoint.swift in Sources */,
