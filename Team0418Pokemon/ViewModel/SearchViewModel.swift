@@ -10,50 +10,52 @@ import Foundation
 final class FakeSearchService: SearchUseCase {
     
     //테스트
-    let pokemonList: [Pokemon] = [
-           Pokemon(id: 1, name: "Bulbasaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"),
-           Pokemon(id: 2, name: "ivysaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"),
-           Pokemon(id: 3, name: "vensaur", imageUrlString:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"),
-           Pokemon(id: 4, name: "charmander", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"),
+    let pokemonList: [SearchedPokemon] = [
+        SearchedPokemon(id: 1, name: "bulbasaur",imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",type: .grass),
+        SearchedPokemon(id: 2, name: "ivysaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png", type: .grass),
+        SearchedPokemon(id: 3, name: "vensaur", imageUrlString:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png", type: .grass),
+        SearchedPokemon(id: 4, name: "charmander",  imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png", type: .fire),
        ]
     
-    func request(with pokemonName: String, _ pokemonType: PokemonType) async -> [Pokemon] {
+    func request(with pokemonName: String, _ pokemonType: PokemonType) async -> [SearchedPokemon] {
         
         return pokemonList
     }
-    /Users/heejijung/workspace/Pr_pokemon_0418/PokemonDexApp/Team0418Pokemon/Domain/Model/Entities/Pokemon.swift
-    func retrieveType(of pokemon: Pokemon) async -> PokemonType {
-        // 구현
-        return .all
-    }
 }
 
-                                
+
 class SearchViewModel: ObservableObject{
     
     private let searchUseService: SearchUseCase
     //검색어
     @Published var inputSearch = ""
     //선택 타입 태그
-    private(set)  var isSelectedTag: PokemonType? = nil
+    @Published  var isSelectedTag: PokemonType? = .all
     // 필터 포켓몬 목록
-    private(set)  var filteredPokemonList: [Pokemon] = []
+    @Published  var filteredPokemonList: [SearchedPokemon] = []
     
-    private(set) var pokeomn: [Pokemon]?
+    private(set) var pokeomn: [SearchedPokemon]?
     
     init(searchUseService:SearchUseCase ) {
         self.searchUseService = searchUseService
+        self.pokeomn = []
     }
-
+    
     
     //검색 함수
-    func searchPokemon() {
+    func searchPokemon() async {
         if inputSearch.isEmpty {
-            //filteredPokemonList = pokemonList
+            //filteredPokemonList = pokeomn
         } else {
             
-            let pokemonList = await searchUseService.request(with: inputSearch.lowercased(), PokemonType: isSelectedTag ?? nil)
-            filteredPokemonList = pokemonList.filter { $0.name.lowercased().contains(inputSearch.lowercased()) }
+            let pokemonlist = await searchUseService.request(with: inputSearch.lowercased(), isSelectedTag ?? .all)
+            let searchedPokemons = pokemonlist.map { pokemon in
+                return SearchedPokemon(id: pokemon.id, name: pokemon.name, imageUrlString: pokemon.imageUrlString, type: pokemon.type)
+                
+            }
+            DispatchQueue.main.async{
+                self.filteredPokemonList = searchedPokemons
+            }
         }
     }
     
@@ -61,8 +63,8 @@ class SearchViewModel: ObservableObject{
     //버튼 클릭 이벤트
     func selectBtnClick(_ selctag: PokemonType)
     {
-        //inputSearch = selctag.rawValue
-
+        inputSearch = selctag.rawValue
+        
     }
     
 }
