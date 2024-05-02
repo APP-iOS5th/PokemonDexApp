@@ -7,21 +7,31 @@
 
 import Foundation
 
-//@Observable
-//final class DetailModel {
-//    private let service: DetailUseCase
-//    
-//    private(set) var pokeDtail: Pokemon
-//    
-//    init(service: DetailUseCase) {
-//        self.service = service
-//    }
-//    func loadDetail(width pokemonId: Int) async {
-//        do {
-//            self.pokeDtail = await service.fetchPokemonDetail(with: pokemonId )
-//        }
-//    }
-//}
-//func class MockService: DetailUseCase  {
-//    
-//}
+@Observable
+final class DetailModel:ObservableObject {
+    private let service: DetailUseCase
+    
+    private(set) var pokeDtail: PokemonDetail
+    
+    init(service: DetailUseCase) {
+        self.service = service
+        self.pokeDtail = PokemonDetail(id: 0, type: .normal, name: "", imageUrlString: "", stat: PokemonStat(hp: 0, attack: 0, defense: 0, specialAttack: 0, specialDefense: 0, speed: 0), genus: "")
+        
+
+    }
+    func loadDetail(width id: Int) async {
+        pokeDtail = await service.request(with: id)
+
+    }
+}
+final class MockService: DetailUseCase  {
+    lazy var stats = PokemonStat(hp: 100, attack: 80, defense: 70, specialAttack: 90, specialDefense: 80, speed: 110)
+
+    func request(with pokemonId: Int) async -> PokemonDetail {
+        return PokemonDetail(id: 1, type: .grass, name: "bulbasaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", stat: stats , genus: "seed Pokemon")
+    }
+    lazy var pomkomData: PokemonDetail = {
+        PokemonDetail(id: 1, type: .grass, name: "bulbasaur", imageUrlString: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", stat: self.stats, genus: "seed Pokemon")
+    }()
+}
+

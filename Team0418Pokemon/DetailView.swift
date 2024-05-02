@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct DetailView: View {
+    @StateObject private var detailModel = DetailModel(service: MockService())
     var body: some View {
         ZStack{
             Image("detailBg")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)//Safe Area를 무시하고 이미지 전체를 화면에 채움
             ScrollView {
-                PkmImgView().frame(width: 200,height: 200)
+                PkmImgView(idToSend: 1).frame(width: 200,height: 200)
+                
                 GeometryReader { geometry in
                     RoundedRectangle(cornerRadius:25)
                         .fill(Color.white)
                         .frame(height: 800)
                 }
-                FirstDetailView(id: 1)
+                FirstDetailView(id: 1, idToSend: 1)
                     .padding(10)
                 Divider()
                 VStack(alignment: .leading) {
