@@ -38,6 +38,7 @@ struct SearchListRowView: View {
                 Text(pokemon.name)
                     .font(.system(size: 25))
                     .fontWeight(.bold)
+                    .foregroundStyle(Color.black)
             }
             Spacer()
             
