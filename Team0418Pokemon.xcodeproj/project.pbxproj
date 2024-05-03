@@ -108,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				83439DE52BE0D4B30073D526 /* Entities */,
-				83439DEE2BE0DDCA0073D526 /* PokemonType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +115,7 @@
 		83439DE52BE0D4B30073D526 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				83439DEE2BE0DDCA0073D526 /* PokemonType.swift */,
 				83439DE62BE0D53F0073D526 /* Pokemon.swift */,
 				83439DF22BE0DE500073D526 /* PokemonDetail.swift */,
 			);
