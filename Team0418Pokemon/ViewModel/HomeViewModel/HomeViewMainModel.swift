@@ -113,26 +113,26 @@ struct CustomToolbar2: View {
     }
 }
 
-func buttonTapped(_ button: String) -> String {
+func buttonTapped(_ button: Int) -> String {
         
         switch button {
-        case "1":
+        case 1:
             return "0001-0151"
-        case "2":
+        case 2:
             return "0152-0251"
-        case "3":
+        case 3:
             return "0252-0386"
-        case "4":
+        case 4:
             return "0387-0493"
-        case "5":
+        case 5:
             return "0494-0649"
-        case "6":
+        case 6:
             return "0650-0721"
-        case "7":
+        case 7:
             return "0722-0809"
-        case "8":
+        case 8:
             return "0810-0905"
-        case "9":
+        case 9:
             return "0906-1025"
         default:
             return "0001-0151"

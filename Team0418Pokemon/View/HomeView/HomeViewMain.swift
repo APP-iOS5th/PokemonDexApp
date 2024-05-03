@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomButton: View {
     @State var netServ = FakeNetServ()
     @State private var pokemons: [Pokemon] = []
-    @State private var navigate = false
+    @State private var isNavigate = false
     
     let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
     
@@ -30,17 +30,17 @@ struct CustomButton: View {
                     ForEach(pokemons) { pokemon in
                         ZStack {
                             Button(action: {
-                                self.navigate = true
+                                self.isNavigate = true
                             }) { VStack(spacing: 3) { AsyncImage(url: URL(string: pokemon.imageUrlString)) { image in image.resizable() } placeholder: {ProgressView()}
                                     .frame(height: 90)
                                     .frame(maxWidth: 90)
                                     .background(.white.opacity(0.8))
                                     .cornerRadius(30)
-                                Text(buttonTapped(pokemon.name))
+                                Text(buttonTapped(pokemon.id))
                                     .font(.system(size: 14))
                                     .bold()
                                     .foregroundColor(.white)
-                                NavigationLink(destination: HomeViewP2(), isActive: $navigate) {}
+                                NavigationLink(ListView(), isActive: $isNavigate) {}
                             }
                             }
                         }
