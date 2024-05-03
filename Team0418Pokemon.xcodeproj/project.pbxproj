@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B2A4A502BE31DF0003D3EEF /* FirstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A4F2BE31DF0003D3EEF /* FirstModel.swift */; };
+		3B7F8AEF2BE48FE40085C4D1 /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7F8AEE2BE48FE40085C4D1 /* AppleLoginView.swift */; };
 		3B8185412BE1C75A004234EC /* FirstDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8185402BE1C75A004234EC /* FirstDetailView.swift */; };
 		3B8185432BE1CAC8004234EC /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8185422BE1CAC8004234EC /* SecondView.swift */; };
 		3B8185452BE1CE27004234EC /* PkmImgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8185442BE1CE27004234EC /* PkmImgView.swift */; };
@@ -50,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		3B2A4A4F2BE31DF0003D3EEF /* FirstModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstModel.swift; path = Team0418Pokemon/FirstModel.swift; sourceTree = SOURCE_ROOT; };
+		3B7F8AE92BE48F380085C4D1 /* Team0418Pokemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Team0418Pokemon.entitlements; sourceTree = "<group>"; };
+		3B7F8AEE2BE48FE40085C4D1 /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppleLoginView.swift; path = Team0418Pokemon/AppleLoginView.swift; sourceTree = SOURCE_ROOT; };
 		3B8185402BE1C75A004234EC /* FirstDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstDetailView.swift; path = Team0418Pokemon/FirstDetailView.swift; sourceTree = SOURCE_ROOT; };
 		3B8185422BE1CAC8004234EC /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondView.swift; path = Team0418Pokemon/SecondView.swift; sourceTree = SOURCE_ROOT; };
 		3B8185442BE1CE27004234EC /* PkmImgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PkmImgView.swift; path = Team0418Pokemon/PkmImgView.swift; sourceTree = SOURCE_ROOT; };
@@ -162,6 +165,7 @@
 		83A972472BDF9D1A0027C4BC /* Team0418Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				3B7F8AE92BE48F380085C4D1 /* Team0418Pokemon.entitlements */,
 				83439DE82BE0D5C30073D526 /* Domain */,
 				83A972752BDF9D380027C4BC /* Network */,
 				83A9727F2BDF9E540027C4BC /* ViewModel */,
@@ -203,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				3BB0E2312BE0E31000E05293 /* DetailView.swift */,
+				3B7F8AEE2BE48FE40085C4D1 /* AppleLoginView.swift */,
 				3B84313B2BE3747D000F366A /* ListView.swift */,
 				3B8185442BE1CE27004234EC /* PkmImgView.swift */,
 				3B8185402BE1C75A004234EC /* FirstDetailView.swift */,
@@ -365,6 +370,7 @@
 				83439DF52BE0DF0F0073D526 /* DetailUseCase.swift in Sources */,
 				3BB0E2322BE0E31000E05293 /* DetailView.swift in Sources */,
 				83439DF32BE0DE500073D526 /* PokemonDetail.swift in Sources */,
+				3B7F8AEF2BE48FE40085C4D1 /* AppleLoginView.swift in Sources */,
 				3B8431382BE34CBF000F366A /* DetailModel.swift in Sources */,
 				83A9724B2BDF9D1A0027C4BC /* ContentView.swift in Sources */,
 				3B8185432BE1CAC8004234EC /* SecondView.swift in Sources */,
@@ -535,6 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Team0418Pokemon/Team0418Pokemon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Team0418Pokemon/Preview Content\"";
@@ -563,6 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Team0418Pokemon/Team0418Pokemon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Team0418Pokemon/Preview Content\"";

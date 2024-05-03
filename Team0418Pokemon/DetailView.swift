@@ -16,7 +16,6 @@ struct DetailView: View {
                 .edgesIgnoringSafeArea(.all)//Safe Area를 무시하고 이미지 전체를 화면에 채움
             ScrollView {
                 PkmImgView(idToSend: 1).frame(width: 200,height: 200)
-                
                 GeometryReader { geometry in
                     RoundedRectangle(cornerRadius:25)
                         .fill(Color.white)
