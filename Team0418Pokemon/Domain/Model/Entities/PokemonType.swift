@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 enum PokemonType: String, CaseIterable {
     case all = "All"
     case normal = "Normal"
@@ -75,3 +73,5 @@ enum PokemonType: String, CaseIterable {
         }
     }
 }
+
+

@@ -1,11 +1,3 @@
-//
-//  Color.swift
-//  Team0418Pokemon
-//
-//  Created by 차지용 on 5/3/24.
-//
-
-import Foundation
 import SwiftUI
 
 extension Color {

@@ -9,21 +9,18 @@ import Foundation
 
 struct PokemonDetail: Identifiable {
     let id: Int
-    let type: PokemonType //타입
+    let type: PokemonType
     let name: String
     let imageUrlString: String
-    let stat: PokemonStat//상태
+    let stat: PokemonStat
     let genus: String
-    
 }
 
-struct PokemonStat: Hashable {
-    let hp: Int
+struct PokemonStat {
+    let ht: Int
     let attack: Int
     let defense: Int
     let specialAttack: Int
     let specialDefense: Int
     let speed: Int
-    
 }
-
