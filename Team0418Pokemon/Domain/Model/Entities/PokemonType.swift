@@ -7,6 +7,8 @@
 
 import Foundation
 
+import Foundation
+
 enum PokemonType: String, CaseIterable {
     case all = "All"
     case normal = "Normal"
@@ -28,8 +30,9 @@ enum PokemonType: String, CaseIterable {
     case steel = "Steel"
     case fairy = "Fairy"
 }
-extension PokemonType{
-    func DisplayColorName() -> String{
+
+ extension PokemonType{
+     var DisplayColorName : String{
         switch self {
         case .all:
             return "000000"
@@ -38,11 +41,11 @@ extension PokemonType{
         case .fire:
             return "FF0000"
         case .water:
-            return "0000FF"
+            return "1e90ff"
         case .grass:
-            return "008000"
+            return "#9acd32"
         case .electric:
-            return "FFFF00"
+            return "ffd700"
         case .ice:
             return "00BFFF"
         case .fighting:
@@ -50,27 +53,25 @@ extension PokemonType{
         case .poison:
             return "800080"
         case .ground:
-            return "A52A2A"
+            return "b8860b"
         case .flying:
             return "87CEEB"
         case .psychic:
-            return "800080"
+            return "ff1493"
         case .bug:
-            return "008000"
+            return "bdb76b"
         case .rock:
-            return "A52A2A"
+            return "eee8aa"
         case .ghost:
-            return "800080"
+            return "663399"
         case .dragon:
-            return "800080"
+            return "4169e1"
         case .dark:
             return "000000"
         case .steel:
-            return "808080"
+            return "778899"
         case .fairy:
             return "FFC0CB"
         }
     }
-
-
 }
