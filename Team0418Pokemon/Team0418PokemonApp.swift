@@ -11,7 +11,10 @@ import SwiftUI
 struct Team0418PokemonApp: App {
     var body: some Scene {
         WindowGroup {
-            ListView(min: 0, max: 150)
+
+
+            ContentView()
+
         }
     }
 }
