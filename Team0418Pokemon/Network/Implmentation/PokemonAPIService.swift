@@ -148,16 +148,24 @@ extension PokemonAPIService: SearchUseCase {
         _ pokemonType: PokemonType
     ) async -> [SearchedPokemon] {
         do {
+            print("‼️ start")
             let allPokemons: PokemonListDTO = try await request(
                 with: .list(offset: 0, limit: 2000)
             )
             return try await allPokemons
                 .results
-                .filter { $0.name.contains(pokemonName) }
+                .filter {
+                    $0.name.contains(pokemonName)
+                }
                 .asyncMap(searchPokemon(_:))
                 .filter { pokemonDetail in
                     pokemonDetail.types.contains { outer in
-                        outer.type.name == pokemonType.rawValue
+                        switch pokemonType {
+                            case .all:
+                                return true
+                            default:
+                                return outer.type.name == pokemonType.rawValue
+                        }
                     }
                 }
                 .map { $0.toSearchedPokemon() }

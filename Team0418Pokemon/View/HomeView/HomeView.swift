@@ -26,8 +26,8 @@ struct CustomButton: View {
                     ZStack {
                         NavigationLink {
                             ListView(
-                                min: cellModel.generationRange.startNumber,
-                                max: cellModel.generationRange.endNumber
+                                min: cellModel.generationRange.startNumber - 1,
+                                max: cellModel.generationRange.endNumber - 1
                             )
                         } label: {
                             VStack {

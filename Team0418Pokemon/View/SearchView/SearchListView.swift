@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct SearchListView: View {
-   
-    @EnvironmentObject var searchVM: SearchViewModel
+    let searchedPokemons: [SearchedPokemon]
     
     var body: some View {
         ScrollView(.vertical) {
             VStack() {
-                ForEach(searchVM.filteredPokemonList,  id: \.id){ pokemons in
+                ForEach(searchedPokemons,  id: \.id){ pokemons in
                     NavigationLink{
                         Text("\(pokemons.id)\(pokemons.name)")
                     } label: {

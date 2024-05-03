@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct SearchView: View {
-    
-    @StateObject var searchVM: SearchViewModel = .init(searchUseService: FakeSearchService())
+    @Environment(SearchViewModel.self) private var searchVM
+    @State private var inputString: String = ""
+    @State private var selectedTag: PokemonType = .all
 
     var body: some View {
         NavigationView {
             VStack{
-                FilterTagsView()
-                    .environmentObject(searchVM)
-                SearchListView()
-                    .environmentObject(searchVM)
+                FilterTagsView(selectedTag: $selectedTag)
+                SearchListView(searchedPokemons: searchVM.filteredPokemonList)
             }
             .navigationBarTitle("Who's that pokemon?")
-            .searchable(text: $searchVM.inputSearch, placement: .navigationBarDrawer, prompt: "Find a Pokemon")
+            .searchable(text: $inputString, placement: .navigationBarDrawer, prompt: "Find a Pokemon")
             .onSubmit(of: .search) {
                 Task {
-                    await searchVM.searchPokemon()
+                    await searchVM.searchPokemon(with: inputString, selectedTag)
                 }
             }
         }
@@ -32,4 +31,5 @@ struct SearchView: View {
 
 #Preview {
     SearchView()
+        .environment(SearchViewModel(searchUseService: FakeSearchService()))
 }

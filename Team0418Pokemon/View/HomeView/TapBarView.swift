@@ -14,7 +14,7 @@ struct TapBarView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 HomeView().tag(0)
-                HomeViewP2().tag(1)
+                SearchView().tag(1)
                 HomeViewP3().tag(2)
             }
             

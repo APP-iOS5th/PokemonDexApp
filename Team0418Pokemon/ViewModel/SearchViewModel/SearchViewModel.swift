@@ -5,7 +5,7 @@
 //  Created by Heeji Jung on 4/30/24.
 //
 
-import Foundation
+import SwiftUI
 
 final class FakeSearchService: SearchUseCase {
     
@@ -23,16 +23,12 @@ final class FakeSearchService: SearchUseCase {
     }
 }
 
-
-class SearchViewModel: ObservableObject{
+@Observable
+final class SearchViewModel{
     
     private let searchUseService: SearchUseCase
-    //검색어
-    @Published var inputSearch = ""
-    //선택 타입 태그
-    @Published  var isSelectedTag: PokemonType? = .all
     // 필터 포켓몬 목록
-    @Published  var filteredPokemonList: [SearchedPokemon] = []
+    private(set) var filteredPokemonList: [SearchedPokemon] = []
     
     private(set) var pokeomn: [SearchedPokemon]?
     
@@ -43,28 +39,24 @@ class SearchViewModel: ObservableObject{
     
     
     //검색 함수
-    func searchPokemon() async {
+    func searchPokemon(with inputSearch: String, _ tag: PokemonType) async {
         if inputSearch.isEmpty {
             //filteredPokemonList = pokeomn
         } else {
             
-            let pokemonlist = await searchUseService.request(with: inputSearch.lowercased(), isSelectedTag ?? .all)
-            let searchedPokemons = pokemonlist.map { pokemon in
-                return SearchedPokemon(id: pokemon.id, name: pokemon.name, imageUrlString: pokemon.imageUrlString, type: pokemon.type)
-                
-            }
-            DispatchQueue.main.async{
-                self.filteredPokemonList = searchedPokemons
-            }
+            /// This code does not nessesary, since request method of the service sends to you
+            /// `SearchedPokemon` type data already.
+//            let pokemonlist = await searchUseService.request(with: inputSearch.lowercased(), isSelectedTag ?? .all)
+//            let searchedPokemons = pokemonlist.map { pokemon in
+//                return SearchedPokemon(id: pokemon.id, name: pokemon.name, imageUrlString: pokemon.imageUrlString, type: pokemon.type)
+//                
+//            }
+//            DispatchQueue.main.async{
+//                self.filteredPokemonList = searchedPokemons
+//            }
+            
+            filteredPokemonList = await searchUseService.request(with: inputSearch.lowercased(), tag)
+            print("return: \(filteredPokemonList)")
         }
     }
-    
-    
-    //버튼 클릭 이벤트
-    func selectBtnClick(_ selctag: PokemonType)
-    {
-        inputSearch = selctag.rawValue
-        
-    }
-    
 }
