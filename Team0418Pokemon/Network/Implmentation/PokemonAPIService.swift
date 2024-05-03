@@ -141,3 +141,38 @@ extension PokemonAPIService: DetailUseCase {
         }
     }
 }
+
+extension PokemonAPIService: SearchUseCase {
+    func request(
+        with pokemonName: String,
+        _ pokemonType: PokemonType
+    ) async -> [SearchedPokemon] {
+        do {
+            let allPokemons: PokemonListDTO = try await request(
+                with: .list(offset: 0, limit: 2000)
+            )
+            return try await allPokemons
+                .results
+                .filter { $0.name.contains(pokemonName) }
+                .asyncMap(searchPokemon(_:))
+                .filter { pokemonDetail in
+                    pokemonDetail.types.contains { outer in
+                        outer.type.name == pokemonType.rawValue
+                    }
+                }
+                .map { $0.toSearchedPokemon() }
+        } catch {
+            Logger.errorLog("Other Error")(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
+    private func searchPokemon(
+        _ pokemon: PokemonListItem
+    ) async throws -> PokemonDetailDTO {
+        try await request(
+            with: .detailString(pokemon.name)
+        )
+    }
+}

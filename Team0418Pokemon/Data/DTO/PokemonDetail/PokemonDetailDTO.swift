@@ -14,3 +14,16 @@ struct PokemonDetailDTO: Decodable {
     let stats: [PokemonStatsDTO]
     let types: [PokemonTypesDTO]
 }
+
+extension PokemonDetailDTO {
+    func toSearchedPokemon() -> SearchedPokemon {
+        SearchedPokemon(
+            id: self.id,
+            name: self.name,
+            imageUrlString: self.sprites.frontDefault,
+            type: PokemonType(
+                rawValue: self.types[0].type.name
+            ) ?? .water
+        )
+    }
+}
