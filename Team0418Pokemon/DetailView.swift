@@ -20,7 +20,7 @@ struct DetailView: View {
                 GeometryReader { geometry in
                     RoundedRectangle(cornerRadius:25)
                         .fill(Color.white)
-                        .frame(height: 800)
+                        .frame(height: 900)
                 }
                 FirstDetailView(id: 1, idToSend: 1)
                     .padding(10)

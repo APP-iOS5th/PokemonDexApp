@@ -15,27 +15,33 @@ struct SecondView: View {
     ]
     var body: some View {
         LazyVGrid(columns: gridItem) {
-            
-            HStack(alignment: .center){
-                VStack(alignment:.trailing) {
+            HStack{
+                VStack {
                     Text("HP:")
+                        .bold()
                     Text("Attack: ")
+                        .bold()
                     Text("Defense: ")
+                        .bold()
                     Text("Special-Attack: ")
+                        .bold()
                     Text("Special-Defense:")
+                        .bold()
                     Text("Speed:")
+                        .bold()
                 }
-                .padding(.trailing, 15)
                 VStack{
                     ForEach(0..<6) { index in
-                        ZStack(alignment: .center){
+                        ZStack{
                             ZStack(alignment: .leading){
                                 RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: 100)
-                                    .foregroundColor(Color.blue)
+                                    .frame(width: 110)
+                                    .foregroundColor(Color.yellow)
+                                    .opacity(0.3)
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: getWidt(for: index))
-                                    .foregroundColor(Color.red)
+                                    .foregroundColor(Color.yellow)
+                                VStack(alignment: .center ){
                                     switch (index) {
                                     case 0:
                                         Text("\(detailModel.pokeDtail.stat.hp)")
@@ -52,6 +58,8 @@ struct SecondView: View {
                                     default :
                                         Text("error")
                                     }
+                                    
+                                }
                             }
                         }
                     }
