@@ -7,7 +7,7 @@
 
 import Foundation
 
-private var detailModel = DetailModel(service: DetailMockService())
+private var detailModel = DetailViewModel(service: DetailMockService())
 
 func getWidt(for index: Int) ->CGFloat {
 

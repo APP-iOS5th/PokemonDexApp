@@ -24,12 +24,16 @@ struct ListContentsView: View {
                 ScrollView {
                     ForEach (pokemonList, id: \.id) { pokemon in
                         LazyVStack {
-                            ListItem(number: pokemon.id, name: "\(pokemon.name)", imageUrl: pokemon.imageUrlString)
-                                .frame(height: 100)
+                            NavigationLink {
+                                DetailView(pokemonId: pokemon.id)
+                            } label: {
+                                ListItem(number: pokemon.id, name: "\(pokemon.name)", imageUrl: pokemon.imageUrlString)
+                                    .frame(height: 100)
+                            }
+                            .foregroundStyle(.primary)
                         }
                     }
                 }
-                
             }
             .navigationTitle("\(min) - \(max)")
         }

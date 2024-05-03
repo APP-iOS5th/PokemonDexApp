@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct FirstDetailView: View {
-    @StateObject private var detailModel = DetailModel(service: DetailMockService())
-    var id: Int
-    var idToSend: Int // PkmImgView에서 사용할 id 값
+    let pokemonDetail: PokemonDetail
+    
     var body: some View {
         VStack{
             ZStack{
@@ -20,8 +19,8 @@ struct FirstDetailView: View {
                             Capsule() //타원
                                 .fill(Color.black)
                                 .frame(width:90, height: 30)
-                            if(detailModel.pokeDtail.id != 0) {
-                                Text("No.\(id)")
+                            if(pokemonDetail.id != 0) {
+                                Text("No.\(pokemonDetail.id)")
                                     .foregroundStyle(.white)
                                     .font(.footnote)
                             }
@@ -32,34 +31,32 @@ struct FirstDetailView: View {
                         }
                         ZStack {
                             Capsule() //타원
-                                .fill(Color(Color(hex: detailModel.pokeDtail.type.DisplayColorName)))
+                                .fill(Color(Color(hex: pokemonDetail.type.DisplayColorName)))
                                 .frame(width:90, height: 30)
-                            if(detailModel.pokeDtail.id != 0 ){
-                                Text(detailModel.pokeDtail.type.rawValue).foregroundStyle(.white)
+                            if(pokemonDetail.id != 0 ){
+                                Text(pokemonDetail.type.rawValue).foregroundStyle(.white)
                             }
                         }
                     }
-                    if(detailModel.pokeDtail.id != 0){
-                        Text(detailModel.pokeDtail.name)
+                    if(pokemonDetail.id != 0){
+                        Text(pokemonDetail.name)
                             .font(.largeTitle)
                     }
-                    if(detailModel.pokeDtail.id != 0){
-                        Text(detailModel.pokeDtail.genus)
+                    if(pokemonDetail.id != 0){
+                        Text(pokemonDetail.genus)
                             .font(.footnote)
                     }
                     
                 }
                 
             }
-                
+            
         }
-        .task {
-            await detailModel.loadDetail(width: idToSend) // 포켓몬의 id를 전달하여 해당 포켓몬의 상세 정보를 가져옴
-        }
-        
     }
 }
 
 #Preview {
-    FirstDetailView(id: 1, idToSend: 1)
+    FirstDetailView(
+        pokemonDetail: DetailMockService().pomkomData
+    )
 }

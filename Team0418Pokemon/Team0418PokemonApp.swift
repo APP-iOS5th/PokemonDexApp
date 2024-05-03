@@ -11,11 +11,13 @@ import SwiftUI
 struct Team0418PokemonApp: App {
     private let homeViewModel: HomeViewModel
     private let pokemonListViewModel: ListViewModel
+    private let pokemonDetailViewModel: DetailViewModel
     
     init() {
         let service = PokemonAPIService()
         self.homeViewModel = HomeViewModel(service: service)
         self.pokemonListViewModel = ListViewModel(service: service)
+        self.pokemonDetailViewModel = DetailViewModel(service: service)
     }
     
     var body: some Scene {
@@ -23,6 +25,7 @@ struct Team0418PokemonApp: App {
             TapBarView()
                 .environment(homeViewModel)
                 .environment(pokemonListViewModel)
+                .environment(pokemonDetailViewModel)
         }
     }
 }
