@@ -4,7 +4,7 @@
 //
 //  Created by 차지용 on 4/30/24.
 //
-
+//초기화
 import SwiftUI
 
 struct DetailView: View {
