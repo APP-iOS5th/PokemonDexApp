@@ -32,7 +32,7 @@ struct FirstDetailView: View {
                         }
                         ZStack {
                             Capsule() //타원
-                                .fill(Color(UIColor(hex: detailModel.pokeDtail.type.DisplayColorName())))
+                                .fill(Color(Color(hex: detailModel.pokeDtail.type.DisplayColorName)))
                                 .frame(width:90, height: 30)
                             if(detailModel.pokeDtail.id != 0 ){
                                 Text(detailModel.pokeDtail.type.rawValue).foregroundStyle(.white)
