@@ -41,24 +41,23 @@ struct SecondView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: getWidt(for: index))
                                     .foregroundColor(Color.yellow)
-                                ZStack(alignment:.center){
-                                    switch (index) {
-                                    case 0:
-                                        Text("\(detailModel.pokeDtail.stat.hp)")
-                                    case 1:
-                                        Text("\(detailModel.pokeDtail.stat.attack)")
-                                    case 2:
-                                        Text("\(detailModel.pokeDtail.stat.defense)")
-                                    case 3:
-                                        Text("\(detailModel.pokeDtail.stat.specialAttack)")
-                                    case 4:
-                                        Text("\(detailModel.pokeDtail.stat.specialDefense)")
-                                    case 5:
-                                        Text("\(detailModel.pokeDtail.stat.speed)")
-                                    default :
-                                        Text("error")
-                                    }
+                                switch (index) {
+                                case 0:
+                                    Text("\(detailModel.pokeDtail.stat.hp)")
+                                case 1:
+                                    Text("\(detailModel.pokeDtail.stat.attack)")
+                                case 2:
+                                    Text("\(detailModel.pokeDtail.stat.defense)")
+                                case 3:
+                                    Text("\(detailModel.pokeDtail.stat.specialAttack)")
+                                case 4:
+                                    Text("\(detailModel.pokeDtail.stat.specialDefense)")
+                                case 5:
+                                    Text("\(detailModel.pokeDtail.stat.speed)")
+                                default :
+                                    Text("error")
                                 }
+                                
                                 
                             }
                         }
