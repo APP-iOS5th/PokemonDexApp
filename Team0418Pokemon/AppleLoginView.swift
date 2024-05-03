@@ -11,9 +11,6 @@ import AuthenticationServices
 struct AppleLoginView: View {
     @State private var isLogin = false
     var body: some View {
-        ZStack {
-            Image("pokemonGen1BG 1")
-                .resizable()
             NavigationStack {
                 if isLogin {
                     NavigationLink(destination: DetailView()) {
@@ -78,8 +75,6 @@ struct AppleLoginView: View {
                     )
                     .frame(width : UIScreen.main.bounds.width * 0.9, height:50)
                     .cornerRadius(5)
-                    
-                }
             }
         }
     }
