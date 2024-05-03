@@ -73,5 +73,3 @@ enum PokemonType: String, CaseIterable {
         }
     }
 }
-
-
