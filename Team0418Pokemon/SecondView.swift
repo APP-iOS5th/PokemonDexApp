@@ -10,13 +10,12 @@ import SwiftUI
 struct SecondView: View {
     @StateObject private var detailModel = DetailModel(service: MockService())
     let gridItem:[GridItem] = [
-        GridItem(.flexible(minimum:30, maximum:300)),
-        GridItem(.flexible(minimum:30, maximum:300))
+        GridItem(.flexible(minimum:30, maximum:400))
     ]
     var body: some View {
         LazyVGrid(columns: gridItem) {
             HStack{
-                VStack {
+                VStack(spacing: 10) {
                     Text("HP:")
                         .bold()
                     Text("Attack: ")
@@ -30,18 +29,19 @@ struct SecondView: View {
                     Text("Speed:")
                         .bold()
                 }
+                Spacer()
                 VStack{
                     ForEach(0..<6) { index in
                         ZStack{
                             ZStack(alignment: .leading){
                                 RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: 110)
+                                    .frame(width: 170)
                                     .foregroundColor(Color.yellow)
                                     .opacity(0.3)
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: getWidt(for: index))
                                     .foregroundColor(Color.yellow)
-                                VStack(alignment: .center ){
+                                ZStack(alignment:.center){
                                     switch (index) {
                                     case 0:
                                         Text("\(detailModel.pokeDtail.stat.hp)")
@@ -58,8 +58,8 @@ struct SecondView: View {
                                     default :
                                         Text("error")
                                     }
-                                    
                                 }
+                                
                             }
                         }
                     }

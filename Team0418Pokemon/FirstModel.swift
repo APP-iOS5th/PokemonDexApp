@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     convenience init(hex: String) { //convenience init 보조 이니셜라어지
         let scanner = Scanner(string: hex)
-        var startIndex = hex.startIndex // 문자열 시작 위치에 currentIndex 할당
+        let startIndex = hex.startIndex // 문자열 시작 위치에 currentIndex 할당
         
         scanner.currentIndex = startIndex
         var rgbValue: UInt64 = 0
