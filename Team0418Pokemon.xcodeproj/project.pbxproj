@@ -33,6 +33,12 @@
 		83A9725A2BDF9D1B0027C4BC /* Team0418PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A972592BDF9D1B0027C4BC /* Team0418PokemonTests.swift */; };
 		83A972642BDF9D1B0027C4BC /* Team0418PokemonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A972632BDF9D1B0027C4BC /* Team0418PokemonUITests.swift */; };
 		83A972662BDF9D1B0027C4BC /* Team0418PokemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A972652BDF9D1B0027C4BC /* Team0418PokemonUITestsLaunchTests.swift */; };
+
+		991E52FE2BE0E11D007879EE /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E52FD2BE0E11D007879EE /* ListView.swift */; };
+		991E53002BE0E3EC007879EE /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E52FF2BE0E3EC007879EE /* ListItem.swift */; };
+		991E53022BE1C14D007879EE /* ListVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E53012BE1C14D007879EE /* ListVIewModel.swift */; };
+		991E53092BE35106007879EE /* ListContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991E53082BE35106007879EE /* ListContentsView.swift */; };
+
 		EA736A012BE499C900D855EB /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA736A002BE499C900D855EB /* SearchListView.swift */; };
 		EA736A032BE499FC00D855EB /* SearchListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA736A022BE499FC00D855EB /* SearchListRowView.swift */; };
 		EA736A052BE49AF500D855EB /* FilterTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA736A042BE49AF500D855EB /* FilterTagsView.swift */; };
@@ -89,12 +95,19 @@
 		83A9725F2BDF9D1B0027C4BC /* Team0418PokemonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Team0418PokemonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A972632BDF9D1B0027C4BC /* Team0418PokemonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team0418PokemonUITests.swift; sourceTree = "<group>"; };
 		83A972652BDF9D1B0027C4BC /* Team0418PokemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team0418PokemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+
+		991E52FD2BE0E11D007879EE /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		991E52FF2BE0E3EC007879EE /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		991E53012BE1C14D007879EE /* ListVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVIewModel.swift; sourceTree = "<group>"; };
+		991E53082BE35106007879EE /* ListContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentsView.swift; sourceTree = "<group>"; };
+
 		EA736A002BE499C900D855EB /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		EA736A022BE499FC00D855EB /* SearchListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListRowView.swift; sourceTree = "<group>"; };
 		EA736A042BE49AF500D855EB /* FilterTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTagsView.swift; sourceTree = "<group>"; };
 		EAA57DCE2BE3722C00D03112 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EAF7566A2BE0E8DA0010AE7E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EAF7566C2BE0E8FD0010AE7E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,12 +241,16 @@
 		83A972752BDF9D380027C4BC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+
+				991E52FC2BE0E10F007879EE /* ListView */,
+
 				3BB0E2312BE0E31000E05293 /* DetailView.swift */,
 				3B7F8AEE2BE48FE40085C4D1 /* AppleLoginView.swift */,
 				3B84313B2BE3747D000F366A /* ListView.swift */,
 				3B8185442BE1CE27004234EC /* PkmImgView.swift */,
 				3B8185402BE1C75A004234EC /* FirstDetailView.swift */,
 				3B8185422BE1CAC8004234EC /* SecondView.swift */,
+
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -253,12 +270,33 @@
 			isa = PBXGroup;
 			children = (
 
+				991E52FB2BE0E0FA007879EE /* ListVIewModel */,
+
 				EAF7566C2BE0E8FD0010AE7E /* SearchViewModel.swift */,
 
 				3B8431372BE34CBF000F366A /* DetailModel.swift */,
 				3B8431392BE35239000F366A /* SecondModel.swift */,
+
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		991E52FB2BE0E0FA007879EE /* ListVIewModel */ = {
+			isa = PBXGroup;
+			children = (
+				991E53012BE1C14D007879EE /* ListVIewModel.swift */,
+			);
+			path = ListVIewModel;
+			sourceTree = "<group>";
+		};
+		991E52FC2BE0E10F007879EE /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				991E52FD2BE0E11D007879EE /* ListView.swift */,
+				991E53082BE35106007879EE /* ListContentsView.swift */,
+				991E52FF2BE0E3EC007879EE /* ListItem.swift */,
+			);
+			path = ListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +430,13 @@
 			buildActionMask = 2147483647;
 			files = (
 
+				991E53092BE35106007879EE /* ListContentsView.swift in Sources */,
+				83439DED2BE0D5E90073D526 /* SearchUseCase.swift in Sources */,
+				83439DF12BE0DDF00073D526 /* HomeUseCase.swift in Sources */,
+				991E52FE2BE0E11D007879EE /* ListView.swift in Sources */,
+				83439DF52BE0DF0F0073D526 /* DetailUseCase.swift in Sources */,
+				991E53002BE0E3EC007879EE /* ListItem.swift in Sources */,
+
 				EAF7566D2BE0E8FD0010AE7E /* SearchViewModel.swift in Sources */,
 				EAF7566B2BE0E8DA0010AE7E /* SearchView.swift in Sources */,
 
@@ -421,7 +466,11 @@
 				83439DEB2BE0D5E00073D526 /* ListUseCase.swift in Sources */,
 				83439DEF2BE0DDCA0073D526 /* PokemonType.swift in Sources */,
 				83A972492BDF9D1A0027C4BC /* Team0418PokemonApp.swift in Sources */,
+
+				991E53022BE1C14D007879EE /* ListVIewModel.swift in Sources */,
+
 				8335C7232BE374BE00D2026D /* SearchedPokemon.swift in Sources */,
+
 				83439DE72BE0D53F0073D526 /* Pokemon.swift in Sources */,
 
 				EA736A052BE49AF500D855EB /* FilterTagsView.swift in Sources */,
