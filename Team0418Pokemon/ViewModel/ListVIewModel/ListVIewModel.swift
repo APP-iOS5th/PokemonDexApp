@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-final class ListVIewModel {
+final class ListViewModel {
   private let service: ListUseCase
 
   private(set) var pokeList: [Pokemon] = [Pokemon]()

@@ -10,16 +10,19 @@ import SwiftUI
 @main
 struct Team0418PokemonApp: App {
     private let homeViewModel: HomeViewModel
+    private let pokemonListViewModel: ListViewModel
     
     init() {
         let service = PokemonAPIService()
         self.homeViewModel = HomeViewModel(service: service)
+        self.pokemonListViewModel = ListViewModel(service: service)
     }
     
     var body: some Scene {
         WindowGroup {
             TapBarView()
                 .environment(homeViewModel)
+                .environment(pokemonListViewModel)
         }
     }
 }

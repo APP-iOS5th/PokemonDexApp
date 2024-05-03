@@ -25,7 +25,10 @@ struct CustomButton: View {
                 ForEach(cellModels) { cellModel in
                     ZStack {
                         NavigationLink {
-                            
+                            ListView(
+                                min: cellModel.generationRange.startNumber,
+                                max: cellModel.generationRange.endNumber
+                            )
                         } label: {
                             VStack {
                                 AsyncImage(url: URL(string: cellModel.pokemonImageString)) { image in
