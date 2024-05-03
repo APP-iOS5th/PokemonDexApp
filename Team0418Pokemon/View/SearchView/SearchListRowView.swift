@@ -31,7 +31,7 @@ struct SearchListRowView: View {
                         .frame(width:50)
                         .background{
                             Capsule()
-                                .fill(Color.stringToColor(pokemon.type.DisplayColorName))
+//                                .fill(Color.stringToColor(pokemon.type.DisplayColorName))
                         }
                 }
                 //이름
@@ -46,7 +46,7 @@ struct SearchListRowView: View {
                 ZStack{
                     image.resizable()
                     Circle()
-                        .foregroundColor(Color.stringToColor(pokemon.type.DisplayColorName))
+//                        .foregroundColor(Color.stringToColor(pokemon.type.DisplayColorName))
                         .blur(radius: 4)
                         .scaleEffect(y:0.15,anchor: .bottom)
                         .scaleEffect(x:1.2, anchor: .bottom)

@@ -24,7 +24,7 @@ final class DetailModel:ObservableObject {
 
     }
 }
-final class MockService: DetailUseCase  {
+final class DetailMockService: DetailUseCase  {
     lazy var stats = PokemonStat(hp: 100, attack: 80, defense: 70, specialAttack: 90, specialDefense: 80, speed: 110)
 
     func request(with pokemonId: Int) async -> PokemonDetail {

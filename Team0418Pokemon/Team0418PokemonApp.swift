@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct Team0418PokemonApp: App {
+    private let homeViewModel: HomeViewModel
+    
+    init() {
+        let service = PokemonAPIService()
+        self.homeViewModel = HomeViewModel(service: service)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            //ContentView()
+            TapBarView()
+                .environment(homeViewModel)
         }
     }
 }

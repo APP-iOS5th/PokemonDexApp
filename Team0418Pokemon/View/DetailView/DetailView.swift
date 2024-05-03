@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @StateObject private var detailModel = DetailModel(service: MockService())
+    @StateObject private var detailModel = DetailModel(service: DetailMockService())
     var body: some View {
         ZStack{
             Image("detailBg")

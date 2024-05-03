@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PkmImgView: View {
-    @StateObject private var detailModel = DetailModel(service: MockService())
+    @StateObject private var detailModel = DetailModel(service: DetailMockService())
     var idToSend: Int // PkmImgView에서 사용할 id 값
 
     var body: some View {

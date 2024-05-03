@@ -17,7 +17,7 @@ struct PokemonDetail: Identifiable {
 }
 
 struct PokemonStat {
-    let ht: Int
+    let hp: Int
     let attack: Int
     let defense: Int
     let specialAttack: Int

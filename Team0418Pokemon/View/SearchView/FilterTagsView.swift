@@ -26,7 +26,7 @@ struct FilterTagsView: View {
                             .frame(width:60)
                             .background {
                                 Capsule()
-                                    .fill(Color.stringToColor(tag.DisplayColorName))
+//                                    .fill(Color.stringToColor(tag.DisplayColorName))
                             }
                     }
                 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SecondView: View {
-    @StateObject private var detailModel = DetailModel(service: MockService())
+    @StateObject private var detailModel = DetailModel(service: DetailMockService())
     let gridItem:[GridItem] = [
         GridItem(.flexible(minimum:30, maximum:400))
     ]
