@@ -139,9 +139,11 @@ func buttonTapped(_ button: Int) -> String {
         }
     }
 
+enum Destination: Int {
+    case destination1 = 1, destination2, destination3, destination4, destination5, destination6, destination7, destination8, destination9
+}
 
-
-
+//                                NavigationLink(ListView(viewModel: EntryViewModel(limit: 151, offset: 0), startFrom:0), isActive: $isNavigate) {}
 
 
 #Preview {
