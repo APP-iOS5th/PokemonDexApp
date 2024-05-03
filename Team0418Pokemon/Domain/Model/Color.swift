@@ -1,10 +1,3 @@
-//
-//  Color.swift
-//  Team0418Pokemon
-//
-//  Created by Heeji Jung on 5/2/24.
-//
-
 import SwiftUI
 
 extension Color {
