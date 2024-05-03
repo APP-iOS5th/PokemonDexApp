@@ -129,6 +129,7 @@
 		83439DE42BE0C9D90073D526 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3BF14CFB2BE4BF8100BA0FB5 /* Color.swift */,
 				83439DE52BE0D4B30073D526 /* Entities */,
 			);
 			path = Model;
@@ -189,7 +190,6 @@
 			children = (
 				3B7F8AE92BE48F380085C4D1 /* Team0418Pokemon.entitlements */,
 				83439DE82BE0D5C30073D526 /* Domain */,
-				3BF14CFB2BE4BF8100BA0FB5 /* Color.swift */,
 				83A972752BDF9D380027C4BC /* Network */,
 				83A9727F2BDF9E540027C4BC /* ViewModel */,
 				83A972722BDF9D240027C4BC /* View */,
