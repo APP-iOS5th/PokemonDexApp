@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct PkmImgView: View {
-    @StateObject private var detailModel = DetailModel(service: MockService())
-    var idToSend: Int // PkmImgView에서 사용할 id 값
-
+    let pokemonDetail: PokemonDetail
+    
     var body: some View {
         VStack {
-            if(detailModel.pokeDtail.imageUrlString.isEmpty){
+            if(pokemonDetail.imageUrlString.isEmpty){
                 Image(systemName: "questionmark.bubble.fill") //포켓몬 이미지 이미지가 없을 경우
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -22,7 +21,7 @@ struct PkmImgView: View {
                     .frame(width: 200, height: 200)
                     .padding(50)
             } else {
-                AsyncImage(url: URL(string: detailModel.pokeDtail.imageUrlString)) { jpgimg in //포켓몬 이미지
+                AsyncImage(url: URL(string: pokemonDetail.imageUrlString)) { jpgimg in //포켓몬 이미지
                     switch jpgimg {
                     case .empty:
                         Text("Empty")
@@ -48,13 +47,12 @@ struct PkmImgView: View {
                 }
             }
         }
-        .task {
-            await detailModel.loadDetail(width: idToSend) // 포켓몬의 id를 전달하여 해당 포켓몬의 상세 정보를 가져옴
-        }
     }
     
 }
 
 #Preview {
-    PkmImgView(idToSend: 1)
+    PkmImgView(
+        pokemonDetail: DetailMockService().pomkomData
+    )
 }

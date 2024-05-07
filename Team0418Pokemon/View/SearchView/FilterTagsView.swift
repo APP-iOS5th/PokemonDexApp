@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct FilterTagsView: View {
-    
-    @EnvironmentObject var searchVM: SearchViewModel
+    @Binding var selectedTag: PokemonType
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
                 ForEach(PokemonType.allCases, id: \.self) { tag in
                     Button(action:{
-                        searchVM.selectBtnClick(tag)
+                        selectedTag = tag
                     }) {
                         Text(tag.rawValue)
                             .font(.caption)
@@ -26,7 +25,7 @@ struct FilterTagsView: View {
                             .frame(width:60)
                             .background {
                                 Capsule()
-                                    .fill(Color.stringToColor(tag.DisplayColorName))
+//                                    .fill(Color.stringToColor(tag.DisplayColorName))
                             }
                     }
                 }
@@ -36,5 +35,7 @@ struct FilterTagsView: View {
 }
 
 #Preview {
-    FilterTagsView()
+    FilterTagsView(
+        selectedTag: .constant(.all)
+    )
 }

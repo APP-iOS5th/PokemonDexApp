@@ -9,9 +9,26 @@ import SwiftUI
 
 @main
 struct Team0418PokemonApp: App {
+    private let homeViewModel: HomeViewModel
+    private let pokemonListViewModel: ListViewModel
+    private let pokemonDetailViewModel: DetailViewModel
+    private let pokemonSearchViewModel: SearchViewModel
+    
+    init() {
+        let service = PokemonAPIService()
+        self.homeViewModel = HomeViewModel(service: service)
+        self.pokemonListViewModel = ListViewModel(service: service)
+        self.pokemonDetailViewModel = DetailViewModel(service: service)
+        self.pokemonSearchViewModel = SearchViewModel(searchUseService: service)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            //ContentView()
+            TapBarView()
+                .environment(homeViewModel)
+                .environment(pokemonListViewModel)
+                .environment(pokemonDetailViewModel)
+                .environment(pokemonSearchViewModel)
         }
     }
 }

@@ -91,7 +91,7 @@ extension PokemonAPIService: DetailUseCase {
             let (fetchedSpeciesData, fetchedDetailData) = try await (speciesData, detailData)
             let composedPokemonStat = composePokemonStat(with: fetchedDetailData.stats)
             let pokemonStat = PokemonStat(
-                ht: composedPokemonStat["hp" ,default: 0],
+                hp: composedPokemonStat["hp" ,default: 0],
                 attack: composedPokemonStat["attack" ,default: 0],
                 defense: composedPokemonStat["defense" ,default: 0],
                 specialAttack: composedPokemonStat["special-attack" ,default: 0],
@@ -122,7 +122,7 @@ extension PokemonAPIService: DetailUseCase {
             name: "",
             imageUrlString: "",
             stat: PokemonStat(
-                ht: 0,
+                hp: 0,
                 attack: 0,
                 defense: 0,
                 specialAttack: 0,
@@ -148,16 +148,24 @@ extension PokemonAPIService: SearchUseCase {
         _ pokemonType: PokemonType
     ) async -> [SearchedPokemon] {
         do {
+            print("‼️ start")
             let allPokemons: PokemonListDTO = try await request(
                 with: .list(offset: 0, limit: 2000)
             )
             return try await allPokemons
                 .results
-                .filter { $0.name.contains(pokemonName) }
+                .filter {
+                    $0.name.contains(pokemonName)
+                }
                 .asyncMap(searchPokemon(_:))
                 .filter { pokemonDetail in
                     pokemonDetail.types.contains { outer in
-                        outer.type.name == pokemonType.rawValue
+                        switch pokemonType {
+                            case .all:
+                                return true
+                            default:
+                                return outer.type.name == pokemonType.rawValue
+                        }
                     }
                 }
                 .map { $0.toSearchedPokemon() }
