@@ -150,7 +150,7 @@ extension PokemonAPIService: SearchUseCase {
         do {
             print("‼️ start")
             let allPokemons: PokemonListDTO = try await request(
-                with: .list(offset: 0, limit: 2000)
+                with: .list(offset: 0, limit: 1025)
             )
             return try await allPokemons
                 .results
@@ -164,7 +164,7 @@ extension PokemonAPIService: SearchUseCase {
                             case .all:
                                 return true
                             default:
-                                return outer.type.name == pokemonType.rawValue
+                                return outer.type.name == pokemonType.rawValue.lowercased()
                         }
                     }
                 }
