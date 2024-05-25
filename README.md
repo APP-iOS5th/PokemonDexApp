@@ -29,3 +29,10 @@
 - 포켓몬들 상세화면 보여주기 - PokemonDetail (TBA)
 - 검색화면(검색시 포켓몬 보여주기) - PokemonSearch (희지)
 - 포켓몬 데이터 모델링 (진웅)
+
+### 이미지 출처(The sources of the images used in this app)
+
+- <a href="https://www.flaticon.com/free-icons/pokeball" title="pokeball icons">Pokeball icons created by tulpahn - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/pokemon" title="pokemon icons">Pokemon icons created by Smashicons - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/pokemon" title="pokemon icons">Pokemon icons created by Nikita Golubev - Flaticon</a>
+- <a href="https://www.flaticon.com/free-icons/pokemon" title="pokemon icons">Pokemon icons created by Nikita Golubev - Flaticon</a>
